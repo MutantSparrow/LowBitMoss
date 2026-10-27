@@ -1,0 +1,770 @@
+[
+ {
+  "id": 0,
+  "prompt": "Cinematic night street photograph: a courier in a yellow rain poncho pushing a delivery bicycle across a rain-soaked crosswalk, glowing red and green traffic lights doubled in the puddles, steam rising from a manhole, shallow depth of field with creamy bokeh from distant shop signs, teal and orange grading, 35mm film grain, slightly low angle. The courier's face is partly shadowed under the hood, drops bead on the yellow plastic, a delivery box with a small reflective strip rides on the rear rack, and long streaks of colored light stretch across the black asphalt toward the vanishing point."
+ },
+ {
+  "id": 1,
+  "prompt": "Documentary-style photograph of an elderly fisherman mending a bright orange net on a weathered wooden pier at dawn, deep wrinkles and salt-stiffened beard, a wool cap pulled low, small fishing boats resting in flat pink-grey water behind him, soft diffused sunrise light, muted colors, 85mm lens, shallow focus on his calloused hands. His skin is sun-leathered and deeply creased, with pale blue eyes watching his fingers work; coils of rope, a rusty bucket and a few gulls fill the foreground, and the whole frame keeps a quiet, unhurried documentary mood."
+ },
+ {
+  "id": 2,
+  "prompt": "Moody cinematic still of a lone detective in a long beige trench coat standing in a narrow alley lit by a single flickering neon sign, cigarette smoke curling upward, wet brick walls, fire escapes overhead, strong cyan and magenta contrast, wide anamorphic framing with the figure on the left third and empty dark space to the right. Smoke from a half-hidden cigarette catches the neon edge-light, his collar is turned up, puddles on the ground show broken pink reflections, and a distant siren glow barely tints the far end of the alley, giving a tense film-noir stillness."
+ },
+ {
+  "id": 3,
+  "prompt": "Close-up studio portrait of a young woman with freckles and short silver-dyed hair, wearing a deep emerald velvet blazer, direct calm gaze, soft butterfly lighting from above with a subtle fill, dark charcoal backdrop, visible skin texture and fine flyaway hairs, 105mm lens, high detail, neutral color palette. Her eyes are a clear hazel with sharp catchlights, a tiny gold stud sits in one ear, the velvet shows a fine pile sheen, and the soft falloff of light leaves one side of her jaw in gentle shadow against the deep background."
+ },
+ {
+  "id": 4,
+  "prompt": "Environmental portrait of a blacksmith in a dim forge, a bearded man in a scorched leather apron holding a glowing orange horseshoe with tongs, sparks flying toward the camera, soot on his forearms, warm firelight from the left against cool blue shadow, tools hanging on the stone wall behind, dramatic chiaroscuro. Hammers and pincers hang in tidy rows on soot-darkened beams, the leather of his apron is cracked and shiny, sweat gleams on his temple, and a bucket of quenching water glimmers in the lower corner while the glowing metal throws orange highlights on his beard."
+ },
+ {
+  "id": 5,
+  "prompt": "Golden-hour photograph of a girl of about eight laughing as she runs through a field of tall wild grass, a yellow sundress and tangled hair lit from behind with a bright rim light, lens flare in the upper corner, motion in the grass, a small wooden farmhouse blurred in the far distance, warm nostalgic tones. Her cheeks are rosy and her eyes squeezed shut with laughter, small wildflowers poke between the stalks near the camera, and the long grass glows gold where the sun flares through, creating a dreamy soft-focus summer memory."
+ },
+ {
+  "id": 6,
+  "prompt": "Black-and-white street photograph of two elderly men playing chess at a stone table in a sunny city park, pieces slightly worn, pigeons walking near their feet, dappled leaf shadows on the ground, high contrast, strong grain, a newspaper folded beside the board, candid framing from a few meters away. The tabletop is chipped and stained, a wooden clock sits nearby showing a late afternoon hour, their concentrated expressions and flat caps are rendered in strong tonal contrast, and the dark outlines of tree trunks frame the scene on both sides."
+ },
+ {
+  "id": 7,
+  "prompt": "Fashion editorial photograph of a model standing on a salt flat at midday wearing a sculptural cobalt blue satin gown with a huge train spread across the white ground, harsh overhead sun, hard-edged shadows, a flat horizon and pale hazy sky, wide shot, ultra clean colors, shot on medium format. The fabric of the gown ripples in the wind like a frozen wave, the model's dark hair is slicked back and her chin is lifted, tiny cracks in the salt crust form hexagonal patterns in the foreground, and the whole image feels sharp, graphic and surreal."
+ },
+ {
+  "id": 8,
+  "prompt": "Product photograph of a matte black wireless over-ear headphone resting on a slab of pale grey concrete, a single soft box light from the upper left, a thin highlight tracing the curve of the headband, subtle reflections on the glossy hinge, a blurred seamless backdrop in muted sage green, crisp commercial look. A faint reflection of a window appears on the polished ear cups, a small braided cable curls beside it, the leather padding shows fine stitching and tiny pores, and the soft shadow below is smooth and elegant with plenty of clean empty space around the product."
+ },
+ {
+  "id": 9,
+  "prompt": "Studio product shot of a glass perfume bottle with a faceted crystal cap and pale amber liquid, standing on a mirror surface with rose petals scattered around, soft gradient background fading from peach to cream, a gentle caustic of light cast across the base, ultra sharp, luxurious advertising style. Tiny bubbles are trapped in the faceted glass, a gold ring circles the neck, shadows are crisp and delicate, a few petals have fallen near the base, and the mirror surface doubles every highlight into a soft shimmering reflection."
+ },
+ {
+  "id": 10,
+  "prompt": "Overhead flat-lay photograph of a rustic breakfast: a cast-iron skillet with two sunny-side-up eggs, crispy bacon, a cup of black coffee, sliced sourdough, a small dish of butter and a sprig of rosemary, on a dark weathered wooden table, natural window light from the left, moody food styling. Tiny cracks cover the egg yolks, the bacon glistens with fat, a linen napkin with a coffee ring peeks from under the board, wisps of steam rise from the cup, and cast-iron texture and wood grain are rendered with rich warm shadows."
+ },
+ {
+  "id": 11,
+  "prompt": "Close-up food photograph of a steaming bowl of ramen with rich cloudy tonkotsu broth, glossy chashu pork slices, a jammy soft-boiled egg cut in half, bright scallions, nori and corn, chopsticks lifting a tangle of noodles, thin steam backlit by a warm lamp, shallow depth of field, dark ceramic bowl on a wooden counter. Droplets of broth cling to the rim of the bowl, red chili oil swirls on the surface, the egg yolk is bright orange and slightly runny, and a blurred lantern and cook in the background complete the cozy Japanese eatery atmosphere."
+ },
+ {
+  "id": 12,
+  "prompt": "A tall slice of layered chocolate cake with glossy ganache dripping down the side, fresh raspberries and a dusting of powdered sugar on a white porcelain plate, a silver fork resting beside it, soft pastel pink background, bright high-key lighting, crumb texture clearly visible. Dark chocolate shavings dust the plate, a bright red raspberry sits on top with a mint leaf, the cake's layers show moist crumbs and cream between them, and a soft shadow stretches left on the pale pink surface for an appetizing, bright look."
+ },
+ {
+  "id": 13,
+  "prompt": "Extreme macro photograph of a single dewdrop on a spider web at sunrise, each strand holding a row of tiny beads of water, the inverted miniature landscape of a green meadow visible inside the largest drop, creamy golden bokeh background, razor-thin focus plane, ultra detailed. Every strand is slightly bent by the weight of the beads, a pale sky and tiny silhouettes of grass blades are visible inside the drops, the colors fade from gold to deep green behind, and the image is quiet, delicate and almost abstract."
+ },
+ {
+  "id": 14,
+  "prompt": "Macro photograph of a honeybee covered in yellow pollen landing on a purple lavender flower, compound eye and fine hairs on the thorax clearly resolved, translucent wing veins catching backlight, blurred green field behind, bright summer midday, sharp focus and rich texture. Her black eye reflects a tiny window, the thorax fur glows with backlight, pollen grains dust the petals, and the flower's pistils are blurred in the foreground, creating a rich layered depth with warm summer colors."
+ },
+ {
+  "id": 15,
+  "prompt": "Macro shot of an old mechanical watch movement with polished brass gears, ruby jewels and a blued steel balance spring, tiny scratches on the metal, a single drop of oil on a pivot, warm low light with specular highlights, dust motes floating in the air, extreme detail. Tiny engraved numbers and Geneva stripes decorate the bridges, the red jewels glow like small rubies, a faint fingerprint smudge shows on the polished steel, and bokeh from background lights adds sparkling highlights in the dark."
+ },
+ {
+  "id": 16,
+  "prompt": "Cinematic wide shot of an astronaut sitting on the rusty hull of a crashed spacecraft in a red desert at sunset, helmet resting on her lap, two small moons rising in a violet sky, long shadows, drifting dust, a vast empty landscape, teal and amber color grade, quiet melancholy mood. Her reflective visor is propped on the ground beside her, bootprints cross the sand, the broken hull is streaked with scorch marks and exposed cables, and the sky fades from deep violet to burnt orange along the horizon."
+ },
+ {
+  "id": 17,
+  "prompt": "A film still of a retired jazz saxophonist playing alone on a dim stage, a single spotlight cone filled with floating dust, his silhouette and the brass instrument gleaming, empty red velvet seats softly visible in the dark foreground, smoky atmosphere, warm amber tone, 50mm lens, subtle film grain. The microphone stand is bent a little, a coat hangs on a chair behind him, sweat glistens on his forehead as he closes his eyes mid-note, and distant exit signs glow small and red in the empty hall."
+ },
+ {
+  "id": 18,
+  "prompt": "Photograph of a chef in a busy restaurant kitchen flipping vegetables in a flaming wok, tall orange flames bursting upward, stainless steel counters reflecting the fire, cooks in white uniforms blurred in the background, intense heat haze, fast shutter freezing every droplet of oil, vivid detail. Orange fire reflects across the wok, bits of scallion and chili fly through the air, the chef's focused face is lit in intense warm light, a wet floor shows red reflections, and cooks and tickets blur into the back of the busy kitchen."
+ },
+ {
+  "id": 19,
+  "prompt": "High-key bright studio photograph of a ballerina mid-leap against a white cyclorama, flowing pale pink tulle skirt frozen in motion, pointed toes and extended arms, tiny shadow beneath her, soft even lighting, clean airy atmosphere, sharp muscular detail, crisp edges. Her satin ballet shoes show every ribbon crossing, a faint powdery dust shimmers around her feet, the tulle layers separate in soft translucent waves, and the white backdrop glows with a very subtle gradient for a feeling of pure lightness."
+ },
+ {
+  "id": 20,
+  "prompt": "Cozy interior photograph of a sunlit reading nook: a mustard-yellow armchair by a tall window, a knitted blanket draped over one arm, stacked books and a steaming mug on a small round side table, a monstera plant, morning light creating warm patterns on a wooden floor, soft focus edges. A small succulent sits on the windowsill, rain-washed light enters from a garden outside, the blanket's chunky knit shows each loop, a book lies open face down on the floor, and the room feels calm, lived-in and unhurried."
+ },
+ {
+  "id": 21,
+  "prompt": "Underwater photograph of a free diver gliding beside a school of silver sardines, shafts of sunlight piercing the turquoise water, bubbles drifting upward, her black wetsuit and long fins, a coral reef far below, wide-angle lens, vibrant clarity, a sense of calm and scale. Her hair floats around her face, light rays shimmer on the water surface above, the sardines flicker silver in a swirling tornado, and the diver's expression is relaxed with a gentle stream of bubbles rising from her regulator."
+ },
+ {
+  "id": 22,
+  "prompt": "Close-up photograph of a weathered farmer's hands holding a handful of dark soil with a green seedling growing from it, dirt under the fingernails, cracked skin, blurred sunlit field in the background, soft golden light, shallow depth of field, earthy palette, emotional documentary feel. A thin gold ring sits on one finger, the seedling's two leaves are bright and dewy, a few earthworms wriggle in the soil, and the warm backlight rims each knuckle with a soft glow against a blurred green field."
+ },
+ {
+  "id": 23,
+  "prompt": "Photograph of a street musician playing a violin in a subway tunnel, a few coins and an open case at her feet, motion-blurred commuters streaking past, tiled walls with a green-white pattern, a train headlight glowing at the far end of the platform, long exposure mix of sharp and blurred. The violin's varnish has a deep amber sheen, her scarf is swept back by the draft of the train, someone's dropped coin glints near the case, and the platform's tiles and yellow safety line lead the eye to the bright approaching light."
+ },
+ {
+  "id": 24,
+  "prompt": "Dramatic portrait of a samurai-inspired warrior cosplayer in dark lacquered armor with red cords, standing in falling cherry blossom petals at twilight, a katana at his side, faint lantern light, shallow depth of field, petals frozen in the air, calm stern expression, cinematic color grade. Pink petals stick to his armor plates, the red silk cords are tied in intricate knots, lantern glow tints the edges of the scene warm orange, and his face shows a quiet, determined calm in the soft blue evening light."
+ },
+ {
+  "id": 25,
+  "prompt": "Cinematic wide photograph of a vintage diner at night in the American desert, a pink neon \"OPEN\" sign glowing in the window, a single pickup truck parked outside, a vast starry sky with the Milky Way above, long exposure stars, warm interior light spilling onto cracked asphalt. Small insects circle the neon, a wet dumpster and a leaning telephone pole fill the corners, a faint steam plume rises from a roadside grate, and the Milky Way arcs high above the diner's flat roof in sharp, long-exposure stars."
+ },
+ {
+  "id": 26,
+  "prompt": "Photograph of a bakery counter at six in the morning: trays of golden croissants, braided loaves and cinnamon rolls, a baker in a flour-dusted apron sliding a baguette into a paper bag, chalkboard menu behind, steam from the oven, warm yellow lighting, lively and welcoming, shallow depth of field. Flour dust floats in the warm window light, the baker's hands are slightly floury, a customer reaches for a fresh pastry in the foreground, and every crust shows a crackled, caramelized texture with sesame and poppy seeds."
+ },
+ {
+  "id": 27,
+  "prompt": "Portrait of an elderly woman with long white braided hair and a patterned wool shawl smiling warmly at a mountain village doorway, deeply lined face, kind eyes, soft overcast light, weathered blue wooden door behind her, subtle color palette, highly detailed skin and fabric. Her silver braid hangs over one shoulder, a wooden basket of dried herbs rests by her feet, the wall behind is whitewashed with a tiny window, and her smile creates crinkles around bright, humble eyes in the diffuse natural light."
+ },
+ {
+  "id": 28,
+  "prompt": "Moody photograph of a boy standing alone in an empty school gymnasium, holding a basketball under one arm, dusty light beams cutting through high windows, polished floor reflections, the lines of the court, long shadows, quiet late afternoon atmosphere, wide symmetrical composition. A forgotten jacket hangs on the folded bleachers, the wooden floor shows scuffs and scoreboard reflections, his small shadow stretches far across the court, and the pale light cools to blue at the high ceiling."
+ },
+ {
+  "id": 29,
+  "prompt": "Cinematic photograph of a bride in a lace gown running through a rainstorm on a cobblestone European street, an umbrella tumbling behind her, laughing, soaked veil streaming, warm shop windows blurred and glowing, raindrops frozen by a flash, joyful chaotic energy. Her laughing mouth, wet eyelashes and flowing lace appear sharp, an overturned umbrella lies on the cobblestones, café lights flare in the rain, and a startled pigeon takes off at the edge of the frame."
+ },
+ {
+  "id": 30,
+  "prompt": "Close-up photograph of a hand pouring golden honey from a wooden dipper onto a stack of fluffy pancakes topped with blueberries, the thick honey stream glistening with highlights, a pat of melting butter, soft morning window light, shallow depth of field, white plate on a rustic table. Tiny blueberries are slightly burst with purple juice, the pancake stack has crisp golden edges, a small jug of syrup stands behind, and the honey ribbon is almost translucent with bright window highlights."
+ },
+ {
+  "id": 31,
+  "prompt": "Photograph of a vintage record player with a vinyl disc spinning, the needle on the groove, warm lamp light, a shelf of record sleeves blurred behind, a plant and a half-empty glass of whiskey with ice, cozy evening mood, fine dust on the vinyl surface, detailed texture of the wooden cabinet. The needle arm and tonearm have fine metal reflections, a thin stream of dust floats in the lamp beam, a framed picture leans on the shelf, and the amber liquid in the glass catches a warm halo of light."
+ },
+ {
+  "id": 32,
+  "prompt": "Fine-art portrait of a violinist in a black evening dress seen from behind in an empty grand hall, a tall arched window casting a pale beam on her, marble floor reflecting the light, her bow raised mid-stroke, faint breath mist in the cold air, restrained desaturated palette. Her black dress has subtle satin folds, the violin case lies open on the polished floor, the high window creates a pale rectangle of light, and long dark shadows of columns lead toward the vanishing point of the hall."
+ },
+ {
+  "id": 33,
+  "prompt": "Studio photograph of three fresh figs, one cut open to reveal deep magenta flesh with tiny seeds, resting on a crumpled sheet of dark parchment paper, a drizzle of honey, dramatic side light, rich shadows, painterly still-life composition inspired by old master lighting. The cut fig's seeds sparkle with wet highlights, the crinkled paper has deep shadow folds, a few gold flecks stand out in the honey, and the dark background fades into deep brown for a moody, painterly still life."
+ },
+ {
+  "id": 34,
+  "prompt": "Gritty cinematic photograph of a lone cowboy riding a horse across a dusty plain toward a storm front, dark clouds lit by lightning on the horizon, the rider's silhouette small in the wide frame, wind whipping his coat, desaturated browns and steel blues, anamorphic widescreen feel. A tangle of dry brush skitters across the ground, the horse's mane whips back, thin shafts of rain fall from the storm's base, and the faint distant outline of a lone windmill and fence line gives the plain depth and scale."
+ },
+ {
+  "id": 35,
+  "prompt": "Candid photograph of a grandmother and granddaughter baking cookies together in a bright kitchen, flour on their noses, the girl standing on a stool pressing dough with a star cutter, trays of cookies on the counter, afternoon sun through a gingham curtain, warm natural light, joyful atmosphere. Their matching aprons have tiny flower prints, a bowl of dough and a rolling pin sit on the table, a window shows green garden leaves, and the girl's tongue peeks out as she concentrates on pressing the cutter."
+ },
+ {
+  "id": 36,
+  "prompt": "Photograph of a mountaineer in a red down jacket resting on a snowy ridge, frost on his beard, breath clouds, ice axe planted beside him, the camera slightly below looking up, vast jagged peaks and a deep blue sky behind, crisp alpine sunlight, strong contrast. Ice crystals cover his eyebrows, the red jacket's fabric ripples in a strong wind, a rope coils at his feet, and sunlight sparkles on blowing snow along the knife-edge ridge."
+ },
+ {
+  "id": 37,
+  "prompt": "Product photograph of a ceramic pour-over coffee set: a white dripper on a glass carafe with dark coffee dripping, a gooseneck kettle in the background, scattered roasted beans, a linen napkin, soft warm light from a side window, gentle steam, minimalist Scandinavian styling. The kettle's spout leans over the dripper, droplets of coffee form a ring on the surface, coffee beans are scattered with a small silver scoop, and the white ceramic shows delicate gloss reflections."
+ },
+ {
+  "id": 38,
+  "prompt": "High-key lifestyle photograph of a young man doing yoga on a white terrace overlooking a calm turquoise sea, a tree pose, linen clothing, bright sunlight and airy white curtains blowing, minimal composition with large empty sky, fresh and clean colors. Her toes point and her hands rest lightly on her knees, a woven mat and a neat folded towel sit by her side, thin clouds hang above the sea, and a tiny white sailboat sits on the horizon."
+ },
+ {
+  "id": 39,
+  "prompt": "Cinematic photograph of a train conductor leaning out of a vintage steam locomotive at a mountain station, billowing white steam, brass fittings, a lantern, autumn forest behind, misty morning light, long shadows on the gravel platform, warm earth tones, nostalgic mood. Brass rails gleam, the conductor's wool cap and goggles rest on his head, a small chalkboard lists arrival times, and tall pines and falling leaves frame the platform while sunbeams break through mist behind the train."
+ },
+ {
+  "id": 40,
+  "prompt": "Photograph of a pottery artist at a wheel shaping a wet clay vase, her hands covered in grey slip, water droplets flung from the spinning clay, shelves of finished pots behind her, soft diffused studio light through large windows, an apron with earthy stains, intimate craft atmosphere. Her forearms are streaked with slip, the wet clay wall rises in an elegant curve, small tools and sponges lie on a towel beside the wheel, and warm soft light brings out the sculptural shape of the vessel."
+ },
+ {
+  "id": 41,
+  "prompt": "Black-and-white fine-art photograph of an old lighthouse on a rocky coast during a violent storm, giant waves exploding against the cliffs, the beam cutting through spray, dramatic cloud structure, long exposure smoothing the sea foam, deep blacks and bright highlights. The tower's wet stones gleam, the beam sweeps across the sea, birds are flung sideways by wind, and a small stone path leads from a low shed toward the base, giving a tiny measure of the scale of the storm."
+ },
+ {
+  "id": 42,
+  "prompt": "Dramatic low-light photograph of a boxer taping his hands in a dim locker room, bare bulb overhead swaying, sweat on his shoulders, lockers with peeling paint, a poster on the wall, sharp rim light on his profile, tense quiet focus, gritty film look. His gloves lie on the bench, a roll of white tape hangs from his thumb, a towel sits around his neck, a cracked mirror reflects part of the room, and the single bare bulb creates a harsh light on his shoulders."
+ },
+ {
+  "id": 43,
+  "prompt": "Close-up macro photograph of a green tree frog clinging to a wet leaf in a rainforest, big golden eyes with horizontal pupils, tiny suction pads on its toes, raindrops on its smooth skin, soft green bokeh, saturated colors, natural overcast light, extreme detail. A raindrop slides down the leaf near its feet, its throat sac pulses faintly, the leaf's veins glow in the soft light, and blurry ferns and orchids frame the animal with various shades of green."
+ },
+ {
+  "id": 44,
+  "prompt": "Photograph of a smiling street food vendor in a night market in Bangkok grilling skewers over charcoal, smoke drifting under hanging bulbs, colorful plastic stools, handwritten price boards, customers waiting in a blurred queue, warm glowing lights, lively and vivid atmosphere. The vendor's grin is bright against smoke, skewers of marinated meat gleam with glaze, a menu board shows hand-lettered prices, and scooters line up along the street while strings of bulbs create warm bokeh above."
+ },
+ {
+  "id": 45,
+  "prompt": "Elegant photograph of a tea ceremony: a woman in a pale kimono pouring green tea into a small ceramic bowl on a tatami floor, a bamboo whisk and iron kettle beside her, shoji screens glowing softly, serene composition, subtle warm tones, steam curling above the bowl. Her hands move with calm precision, the whisk leaves a fine green foam, a lacquer tray with sweets sits at the edge, and the pale light through paper screens creates a soft, even glow on tatami and kimono silk."
+ },
+ {
+  "id": 46,
+  "prompt": "Photograph of a mechanic lying under a classic 1960s muscle car in a messy garage, only his legs and a headlamp beam visible, tools scattered on the oil-stained concrete, a bare bulb overhead, a radio on a shelf, gritty and warm, shallow depth of field. A greasy rag hangs from his back pocket, a set of wrenches fans out on a rolling cart, dusty sunlight edges through a garage door, and the car's chrome underside and exhaust pipes shine with faint orange light."
+ },
+ {
+  "id": 47,
+  "prompt": "Cinematic portrait of a girl with wet black hair wearing an oversized transparent raincoat, standing in the doorway of a convenience store at night, fluorescent light spilling out behind her, rain streaking the glass door, faint reflection of a vending machine, quiet lonely mood, soft grain. Her raincoat is dotted with droplets, her black hair sticks to her cheeks, a bag of snacks hangs from one hand, glowing posters line the shop window behind her, and the cold fluorescent light mixes with the pink neon from across the street."
+ },
+ {
+  "id": 48,
+  "prompt": "Photograph of a flower market stall in the early morning, buckets overflowing with peonies, ranunculus and eucalyptus, a vendor in a green apron arranging a bouquet, price tags on small clipboards, soft overcast light, vibrant pinks and greens, shallow depth of field, lively atmosphere. Pink and white petals fill the buckets, green leaf cuttings and thin ribbons lie on the wet floor, the vendor's hands are quick and gentle, and morning light slants in from the street, creating a fresh, fragrant, lively scene."
+ },
+ {
+  "id": 49,
+  "prompt": "Anime-style digital illustration of a girl with long silver twin-tails and glowing blue eyes standing on a rooftop at dusk, a pleated navy school uniform with a red ribbon, wind lifting her hair, a giant orange sun setting behind a dense city skyline, flocks of crows, detailed clouds, crisp line art with soft cel shading. Her pleated skirt flutters, a small red ribbon trails in the wind, distant antennas and water tanks dot nearby rooftops, and the sky blends from warm orange to violet, with delicate highlights in her glowing eyes and a calm, wistful mood."
+ },
+ {
+  "id": 50,
+  "prompt": "Anime key visual of a young swordswoman in a white and crimson haori leaping from a stone bridge, her katana trailing a ribbon of pale blue light, cherry blossoms swirling around her, a pagoda in a misty mountain valley behind, dynamic low-angle perspective, vivid saturated colors, painterly background. Petals curl around the blade's glowing arc, her sleeves flare dramatically, a red lantern hangs from the bridge rail, and layers of mountains fade into soft blue mist, painted with energetic motion and saturated color."
+ },
+ {
+  "id": 51,
+  "prompt": "Cozy anime-style illustration of a tiny cafe in a rainy European town, a girl with short brown hair in a green apron setting a cup on a window table, glowing warm interior, water droplets on the glass, a cat sleeping on the counter, soft pastel palette, delicate detailed backgrounds reminiscent of a hand-painted film. Warm lights glow over wooden shelves of cups and jars, a handwritten menu hangs by the door, puddles on the street reflect yellow windows, and a stack of books sits beside a vase of daisies, all in gentle watercolor-like detail."
+ },
+ {
+  "id": 52,
+  "prompt": "Chibi-style kawaii illustration of a round white cat wearing a tiny chef hat and holding a whisk beside a giant pink strawberry cake, sparkles and floating hearts, thick outlines, pastel pink and mint background, sticker design with a white border, flat shading. The cat's rosy cheeks, a sprinkle of tiny stars, a ribbon of pink icing and little sparkling candies surround the big cake, with bold outlines and a bright, cheerful, sticker-like composition with a plain background."
+ },
+ {
+  "id": 53,
+  "prompt": "Manga-style black and white illustration of two rival martial artists clashing in mid-air above a ruined temple, speed lines, cracked stone, flying debris, dramatic screentone shading, ink brush texture, extreme foreshortening, a dust cloud erupting below. Ink splatters trail behind their fists, floating tiles hang in the air, a broken stone lantern tumbles through the frame, and dramatic white speed lines focus the viewer on the collision with intense, high-contrast hatching."
+ },
+ {
+  "id": 54,
+  "prompt": "Retro 1990s anime screenshot of a girl in a pilot jacket leaning on the wing of a prop plane in a green countryside, slightly faded film colors, hand-drawn clouds, subtle scan lines and grain, warm afternoon light, a boy with goggles waving in the distance. Her jacket has patches on the sleeves, the biplane's wing struts are streaked with oil, grass sways in the wind, towering clouds fill the sky, and the faded colors and slight halation give the frame a nostalgic, handmade look."
+ },
+ {
+  "id": 55,
+  "prompt": "Oil painting in the style of the Dutch Golden Age: a candlelit still life of a pewter jug, a half-peeled lemon, a roemer glass of wine and a loaf of bread on a dark table, deep shadows, glowing highlights, visible craquelure, rich earthy palette, delicate reflections on the glass. A knife lies at the table's edge, the lemon peel spirals down in a long curl, the pewter shows soft dents, and a single candle just out of frame gives a deep chiaroscuro glow on the glass and bread."
+ },
+ {
+  "id": 56,
+  "prompt": "Impressionist oil painting of a bustling riverside cafe on a summer afternoon, ladies with parasols, boats on the water, loose short brushstrokes in blues, pinks and golds, sunlight dappling through chestnut trees, a hazy sense of motion, thick impasto highlights on the canvas. Women's hats and white dresses blur into brushstrokes, a small orchestra of sailboats floats in the distance, and the dappled shadows on the gravel are purple and blue, giving a lively, shimmering sense of afternoon light."
+ },
+ {
+  "id": 57,
+  "prompt": "Watercolor painting of a quiet fishing village on a misty morning, small wooden boats at a pier, wet-on-wet washes of grey and blue sky bleeding into the sea, pale orange roofs, soft pigment blooms, visible paper grain, loose pencil sketch lines at the edges, unfinished white borders. A thin pencil outline shows the boats' masts, pale yellow light seeps into the lower sky, small birds are loose flicks of dark pigment, and the unpainted paper edges let the dreamy atmosphere breathe."
+ },
+ {
+  "id": 58,
+  "prompt": "Ukiyo-e woodblock print of a giant wave about to crash over three fishing boats beneath a snow-capped mountain, bold flat color areas of indigo and cream, fine hatching lines on the water, small cartouche in the corner, subtle paper fiber texture and slight ink misregistration. The wave's claws of foam are drawn in precise fine lines, the boatmen crouch low over their oars, a small cloud floats at the left, and the paper shows a gentle cream aged tone with delicate carved-grain texture."
+ },
+ {
+  "id": 59,
+  "prompt": "Chinese ink wash painting of misty mountains with a lone fisherman on a bamboo raft, gradients of grey ink from deep black to pale wash, a few twisted pines on a cliff, large areas of untouched white mist, a small red seal in the lower corner, delicate brush texture. A tiny temple roof appears among the pines, wisps of mist wrap the cliffs, the raft's reflection is a faint grey smear in the water, and bold calligraphic brushwork contrasts with soft ink diffusion."
+ },
+ {
+  "id": 60,
+  "prompt": "Surreal digital painting of a giant clock face melting over the branch of a dead tree in a quiet desert at sunset, small figures walking on the sand with long shadows, a pale green sky shifting to pink, smooth gradients, precise detail, dreamlike calm. Tiny pebbles and cracked earth fill the foreground, the melting numbers sag with soft shadows, the distant mesa glows under sunset light, and the surreal quiet scene is rendered with smooth, precise shading."
+ },
+ {
+  "id": 61,
+  "prompt": "Art nouveau poster style illustration of a woman with flowing hair intertwined with lilies and ivy, ornate circular frame with floral patterns, muted gold, olive and cream palette, elegant flat decorative linework, a decorative border, vintage print texture. Thin gold outlines separate the flowers, delicate Art Nouveau lettering-like curves frame her shoulders, the cream background has a faint stained texture, and the colors are soft and restrained, with elegant, flowing proportions."
+ },
+ {
+  "id": 62,
+  "prompt": "Pixel art scene of a small village at night in a snowy forest, warm yellow windows, a tiny blue-hooded character carrying a lantern along a winding path, twinkling stars, a frozen pond reflecting the moon, limited 32-color palette, crisp 16-bit style, dithered gradients. Each window glows in different shades of warm yellow, smoke rises from small chimneys, a snowman stands near the pond, and tiny shooting stars streak the deep blue sky, rendered with crisp pixels and carefully dithered shading."
+ },
+ {
+  "id": 63,
+  "prompt": "Isometric 3D render of a tiny floating island with a cozy wooden cabin, a waterfall dropping into clouds, a small windmill, lanterns, soft pastel colors, smooth clay-like materials, soft global illumination, tilt-shift look, clean light blue background. A little stone bridge crosses the waterfall's pool, glowing lanterns hang from the cabin porch, small trees dot the island, and the soft shadow of the whole island floats on the clouds below in a clean toy-like composition."
+ },
+ {
+  "id": 64,
+  "prompt": "Photorealistic 3D render of a glossy pink ceramic robot vacuum shaped like a tiny pig sitting on a white shelf, soft subsurface shading, a tiny bow on its head, studio lighting with gentle reflections, a pastel gradient backdrop, clean product-render aesthetic. A tiny pink nose, round smooth ears and subtle cartoon eyes give the little device a friendly face, its curved body is lit by a big soft window highlight, and a few confetti dots sit on the white shelf."
+ },
+ {
+  "id": 65,
+  "prompt": "Stylized 3D animated-film character render of a small fox in a yellow raincoat splashing in a puddle, big expressive eyes, fur with visible individual strands, warm streetlight bokeh behind, rain streaks, a soft Pixar-like look, rich color grading. Water drops fall in slow motion, the fox's tail is fluffy and bright orange, a distant bus stop sign blurs behind, and the puddle ripples show clean reflections of lights in a charming animated-movie style."
+ },
+ {
+  "id": 66,
+  "prompt": "Hard-surface sci-fi render of a massive spaceship hangar interior, a battered grey fighter craft on a gantry, orange warning lights, steam venting from pipes, tiny technicians in jumpsuits for scale, volumetric haze, deep perspective, scratched metal and worn paint detail. A pilot walks across the catwalk with a helmet in hand, cargo containers are stacked at the back, bright warning stripes mark the floor, and thin fog catches the work lights, giving the image a big industrial scale."
+ },
+ {
+  "id": 67,
+  "prompt": "Cyberpunk cityscape at night viewed from a high balcony, towering neon-covered skyscrapers, holographic ads of fish and flowers hovering between buildings, flying cars trailing light streaks, rain on the railing in the foreground, magenta and cyan palette, dense atmospheric haze. A small noodle stall glows under an awning in the foreground, wet reflections shine on the metal railing, a large animated billboard shows a woman's face in the distance, and the dense fog gives the towers a layered depth."
+ },
+ {
+  "id": 68,
+  "prompt": "Epic fantasy matte painting of an enormous white dragon coiled around a ruined mountain citadel, storm clouds splitting with a shaft of golden sunlight, tiny knights on a stone causeway for scale, snow whipping off the ridges, intricate scale and armor detail, heroic scale. The dragon's wings are partly folded and its scales glint with cold light, a broken banner flutters from the citadel's tower, ravens circle in the storm, and the foreground path is littered with fallen armor."
+ },
+ {
+  "id": 69,
+  "prompt": "Concept art of an elven treehouse city built into colossal glowing trees at twilight, rope bridges, lanterns in soft teal and gold, mist rising from a forest floor, fireflies, a few elves with flowing robes crossing a platform, rich atmosphere and depth, painterly strokes. Hundreds of tiny lanterns hang between the trunks, a woman in a silver robe reads a scroll on the bridge, soft glowing mushrooms grow along the roots, and warm and cold light blend in a calm, magical mood."
+ },
+ {
+  "id": 70,
+  "prompt": "A steampunk airship with brass propellers and patched canvas balloon docking at a floating iron port above a sea of clouds, crew pulling ropes, smoke from copper chimneys, sunlight breaking through layered clouds, warm sepia and teal palette, intricate gear and rivet details. Gears turn along the airship's side, crew members in leather caps wave from the deck, sparks of light fall from a forge on the dock, and layered cloudscapes give the scene depth and warm nostalgic color."
+ },
+ {
+  "id": 71,
+  "prompt": "Dark fantasy illustration of a hooded necromancer standing in a flooded crypt, ghostly blue flames hovering in his open hand, skeletal hands rising from the water, cracked stone columns with carved runes, cold mist, low-key lighting with sharp cyan highlights. Dripping water echoes in the dark, his tattered sleeves drift in an eerie draft, a cracked skull floats on the water surface, and the cold blue flame lights his hollow face from below."
+ },
+ {
+  "id": 72,
+  "prompt": "Science fiction illustration of a lone explorer in a bulky white suit standing before a huge glowing alien monolith in a bioluminescent cave, pools of turquoise water reflecting light, strange mushrooms the size of trees, soft fog, a sense of awe and scale. Her suit's visor reflects the glowing crystals, small flying spore-like creatures drift in the air, wet rocks glimmer, and the monolith's carved patterns pulse with soft cyan light, adding mystery and wonder."
+ },
+ {
+  "id": 73,
+  "prompt": "Photograph of a majestic snow leopard resting on a rocky ledge in the Himalayas, thick spotted fur dusted with snow, pale green-blue eyes looking at the camera, soft grey winter light, blurred jagged mountains behind, extremely fine fur detail, telephoto compression. Snow rests on her whiskers and thick tail, her breath is faintly visible, the rock is textured with lichen, and the colors are cool silver and grey with a faint pink of dawn on the far peaks."
+ },
+ {
+  "id": 74,
+  "prompt": "Wildlife photograph of a red fox pouncing into deep snow at sunrise, hind legs in the air and front paws plunging, powder snow spraying in a golden backlit cloud, fluffy tail extended, frozen motion at high shutter speed, warm orange and cool blue contrast. Ice crystals sparkle in the air, the fox's ears are pricked, tiny paw prints line the snow behind, the low sun makes the powder look golden, and the whole frame is full of motion and warmth."
+ },
+ {
+  "id": 75,
+  "prompt": "Underwater photograph of a giant manta ray gliding over a coral reef, plankton drifting in light rays, a diver's silhouette far away for scale, clear blue water, schools of tiny fish, high clarity, natural color, wide angle. Fine bubbles drift upward in the beam of light, the ray's white underside has scattered spots, remora fish cling beneath it, and the coral below is a rich mix of orange, purple and green."
+ },
+ {
+  "id": 76,
+  "prompt": "Close-up photograph of a barn owl perched on a mossy fence post at dusk, heart-shaped white face, dark eyes, delicate feather barring, a soft purple-blue sky, distant farmland blurred, a hint of rim light on the feather edges, sharp focus on the eyes. Moss and lichen cover the post, the owl's talons grip the wood, a few pale moths flutter near it, the sky glows violet, and the soft feathers around its face seem to shine in the last light."
+ },
+ {
+  "id": 77,
+  "prompt": "Whimsical illustration of a family of hedgehogs having a picnic under a giant toadstool, tiny teacups, acorn bowls, a checkered cloth, fireflies, soft children's book watercolor and colored pencil style, warm evening light, gentle textured paper. A teapot has a patterned lid, little hedgehog faces are cheerful, the cloth has red squares, the mushroom has white spots, and the soft colored pencil strokes and gentle washes create a warm bedtime story feel."
+ },
+ {
+  "id": 78,
+  "prompt": "Photograph of a golden retriever puppy with floppy ears sitting on a wooden porch holding a muddy tennis ball in its mouth, head tilted, soft afternoon sun, shallow depth of field, a blurred garden behind, fur glowing with rim light, adorable and sharp. Its pink tongue peeks around the ball, a daisy chain lies near its paws, a garden hose coils in the background, and the dog's amber eyes and shiny black nose give an irresistible, innocent look."
+ },
+ {
+  "id": 79,
+  "prompt": "Detailed photograph of a chameleon on a thin twig showing vibrant turquoise and orange skin, one rolled eye focusing on the camera, curled tail, textured scales, blurred green jungle bokeh, bright diffused daylight, macro lens detail. Its eye is ringed by tiny scales in yellow and green, its toes grip the twig like small tongs, a few dewdrops cling to the bark, and the background lights up with creamy green and amber bokeh."
+ },
+ {
+  "id": 80,
+  "prompt": "Photograph of a herd of elephants crossing a shallow river at sunset, dust and spray hanging in golden air, a baby elephant between two adults, long reflections on the water, acacia trees in silhouette, warm saturated colors, telephoto lens compression. Reeds and palms line the riverbank, birds ride on the backs of the elephants, the sky glows pink at the horizon, and ripples spread around each massive leg in the shallow brown water."
+ },
+ {
+  "id": 81,
+  "prompt": "Studio photograph of a Maine Coon cat wearing a tiny knitted red scarf sitting on a white fur rug beside a Christmas tree with warm bokeh lights, long whiskers catching light, fluffy chest fur, calm amber eyes, festive cozy mood. Its eyes reflect twinkling tree lights, ornaments shine in the background, a few glittery snowflakes lie on the rug, and its fur looks incredibly soft with fine highlights along every whisker."
+ },
+ {
+  "id": 82,
+  "prompt": "Vintage botanical illustration of a branch of cherry blossoms with a small bluebird perched on it, delicate watercolor and ink, labeled stem and petals in tiny script, aged cream paper with foxing spots, muted pink and sage greens, fine linework. The tiny bird's feathers are rendered with careful lines and a touch of turquoise, small annotation numbers sit near the petals, and the aged paper has a subtle ink stain in one corner."
+ },
+ {
+  "id": 83,
+  "prompt": "Digital painting of a lonely lighthouse keeper's cottage on a green cliff with wildflowers, a calm sea at golden hour, seagulls, a faint rainbow over distant islands, thick brush strokes, soft glow around the lamp, saturated yet gentle colors. Wildflowers sway in the foreground, the lamp glows soft yellow in the cottage window, birds wheel in a golden sky, and the waves have gentle foam lines, painted in thick, confident strokes."
+ },
+ {
+  "id": 84,
+  "prompt": "Gouache illustration in flat mid-century style of a mountain road trip: a turquoise car winding along a cliff road with pine trees, a big orange sun, simple geometric shapes, limited palette of teal, orange, mustard and cream, paper grain texture. The car's windows are simple shapes, the trees have layered triangles, the sea is a rich flat teal, small birds fly in a line across the sun, and there is slight misregistration and paper grain."
+ },
+ {
+  "id": 85,
+  "prompt": "Low-poly 3D scene of a deer standing in a pastel forest at sunrise, faceted geometric trees in pink and teal, a soft fog layer, minimalist shading, a large circular sun, clean vector-like edges, calm and dreamy. Deer antlers have simple geometric branches, mist layers are semi-transparent pink triangles, a small stream cuts through the forest floor, and the colors blend softly from teal to peach across the sky."
+ },
+ {
+  "id": 86,
+  "prompt": "Claymation-style scene of a small knitted-wool robot watering a tiny potted tree on a windowsill, visible fingerprints in the clay, wool fibers, warm lamp light, handmade miniature world, shallow depth of field, stop-motion look. The robot's tiny watering can is made of felt, its button eyes shine, the windowsill has a little fake grass patch, a miniature sun lamp casts warm light, and the clay shows soft imperfections and fingerprint marks."
+ },
+ {
+  "id": 87,
+  "prompt": "Fantasy illustration of a young witch in a patched purple cloak stirring a bubbling cauldron in a cluttered wooden hut, floating candles, hanging dried herbs, a black cat on a shelf of glass jars, green mist spilling over the rim, warm and cold light contrast, detailed props. Her hat has a drooping brim and a silver buckle, rows of potion jars glow green and violet, a spellbook lies open with illuminated pages, and cobwebs and smoke drift through the beams of moonlight."
+ },
+ {
+  "id": 88,
+  "prompt": "Futuristic product concept render of an egg-shaped autonomous pod car in matte white with a panoramic glass roof parked on an empty bright plaza, soft shadow, reflections of clouds on the glass, clean architecture around, minimalist, ultra-sharp, daylight. The pod's smooth surface has gentle reflections of sky, small elegant wheels sit under the body, a faint blue light strip circles the doors, and a few green trees and pale buildings frame the empty plaza."
+ },
+ {
+  "id": 89,
+  "prompt": "Retro-futuristic 1950s travel poster illustration of a rocket landing on a ringed planet, a smiling couple in cartoon spacesuits waving, bold flat colors, grainy screen-print texture, a starfield, soft halftone dots in the clouds, stylized Art Deco rays. The astronauts' helmets have orange visors, the rocket has fins and a bold red stripe, planet rings are drawn with thin lines, and the text-free background has a pleasing printed misregistration and old paper texture."
+ },
+ {
+  "id": 90,
+  "prompt": "Epic landscape illustration of a giant sword stuck in a vast field of red poppies under a stormy sky, a lone warrior kneeling before it, banners torn by wind, rays of light through dark clouds, ancient ruins in the distance, cinematic color grading, muted shadows. Poppies sway in an energetic wind, the warrior's cape is tattered, rusty armor lies half buried in the grass, a pale ruined arch rises in the haze, and the heavy sky glows with orange light at the horizon."
+ },
+ {
+  "id": 91,
+  "prompt": "Dreamy digital illustration of a whale made of clouds swimming through a pastel sunset sky above a quiet town, tiny kites and paper boats floating up to it, light pink and lavender sky, gentle gradients, delicate sparkles, a calm magical atmosphere. Tiny glowing stars drift from the whale's back, children on a hill watch from a patchwork meadow, the rooftops have warm lit windows, and cotton-like clouds make a soft, dreamy world of peaceful beauty."
+ },
+ {
+  "id": 92,
+  "prompt": "Hyperrealistic 3D render of a translucent jelly dessert shaped like a crystal ball with a tiny garden inside, glossy highlights, soft subsurface scattering, a dewy surface, pastel background with soft backlight, macro depth of field, appetizing style. Tiny glossy flowers, moss and a bright pink mushroom grow inside the sphere, light passes through the gelatin and creates a caustic glow, and a silver spoon rests beside it on a pastel surface."
+ },
+ {
+  "id": 93,
+  "prompt": "Detailed pencil sketch of an old man's face with deep wrinkles and a thoughtful gaze, crosshatching and soft smudged graphite shading, a hint of paper texture and construction lines, a looser sketch of his hands at the lower corner, realistic proportions. Eyes are carefully drawn with highlights, loose hatching defines the cheekbones, a faint grid of construction marks remains on the paper, and the hands below are partly finished with soft shadows and strong line variation."
+ },
+ {
+  "id": 94,
+  "prompt": "Fantasy character art of a dwarf blacksmith queen in ornate plate armor with gold inlays, braided red beard, a massive hammer resting on her shoulder, forge fire glowing behind her, sparks floating, strong rim light, painterly realism, detailed metal reflections. Gold inlays on her gauntlets reflect the forge light, a long braid is tied with iron rings, an anvil and tongs are in the foreground, and glowing embers rise in the dark rafters above."
+ },
+ {
+  "id": 95,
+  "prompt": "Impressionist-style night painting of a rain-washed Parisian boulevard with gas lamps, horse-drawn carriages and people with umbrellas, glowing yellow windows reflecting on slick cobblestones, thick expressive brushwork, warm and cool color contrasts, soft edges. Reflections of lamps stretch like gold ribbons across the road, people with umbrellas appear as dark shapes, a flower seller's stall glows red at the corner, and the thick paint gives the night real depth."
+ },
+ {
+  "id": 96,
+  "prompt": "Colorful psychedelic poster illustration of a giant hummingbird made of geometric patterns hovering above neon flowers, kaleidoscopic symmetry, vibrant magenta, lime and electric blue, thick outlines, ornate mandala textures, grainy print finish. The hummingbird's feather patterns repeat in bright spirals, the petals have glowing outlines, small geometric stars float around, and the entire scene feels like a vibrant concert poster with rich ink texture."
+ },
+ {
+  "id": 97,
+  "prompt": "Architectural photograph of a modern concrete museum with a sweeping curved facade and a long cantilevered roof, deep blue hour sky, warm interior lights glowing through floor-to-ceiling glass, a reflecting pool in front mirroring the building, a few tiny figures walking, clean wide-angle perspective with straight verticals. The concrete shows fine formwork lines and soft weathering streaks, a row of slender trees lines the walkway, the sky fades from indigo to a thin orange band at the horizon, and the whole building feels calm, monumental and precise."
+ },
+ {
+  "id": 98,
+  "prompt": "Interior photograph of a grand baroque library with towering carved wooden shelves, a gilded ceiling fresco, spiral staircases and a long reading table with green lamps, dust motes in a shaft of sunlight from tall arched windows, symmetrical composition, rich warm browns and golds. Leather-bound books with gold titles fill every shelf, a green-shaded lamp glows on the long table, a librarian's cart stands near an aisle, and a polished parquet floor reflects the soft light in long streaks."
+ },
+ {
+  "id": 99,
+  "prompt": "Aerial photograph of a dense medieval hilltop town with terracotta roofs and a bell tower, narrow streets winding between cream-colored houses, a river curving below, morning mist in the valleys, soft sunlight, crisp fine details, a patchwork of fields in the distance. Small boats dot the river, a few cypress trees stand beside a church courtyard, thin smoke rises from a chimney, and the long morning shadows fall across red tiled roofs with exceptional clarity."
+ },
+ {
+  "id": 100,
+  "prompt": "Photograph of a narrow Tokyo alley at night after rain, red paper lanterns, tiny izakaya entrances with noren curtains, tangled power lines overhead, a salaryman in a grey suit walking away with an umbrella, wet pavement full of reflections, warm and cool lights, cinematic shallow depth. A bicycle is leaning on a vending machine, steam rises from a small ramen stall at the end, a cat sits on a window ledge, and every wet surface reflects the glow of the lanterns and shop signs in rich saturated colors."
+ },
+ {
+  "id": 101,
+  "prompt": "Minimalist architecture photograph of a white spiral staircase seen from directly below, concentric curves, soft light from a skylight at the top, perfect symmetry, subtle gradients from grey to white, sharp lines, calm abstract geometry. The steps' thin metal railing curves like a ribbon, the shadow on the walls grows softer toward the bottom, a faint warm glow brightens the central well, and the minimalist image feels quiet and abstract."
+ },
+ {
+  "id": 102,
+  "prompt": "Wide landscape photograph of Icelandic black sand beach at sunrise, basalt sea stacks, long-exposure silky waves with foam trails, a pink and gold sky, a thin layer of mist over the water, wet sand reflecting the colors, crisp foreground pebbles. Dark volcanic rock glistens with receding water, a few tiny birds stand at the edge of the foam, the sky is soft pink above a cold blue sea, and the ocean's motion appears as silky white streaks."
+ },
+ {
+  "id": 103,
+  "prompt": "Landscape photograph of terraced rice paddies in a mountain valley at dawn, glass-like water reflecting orange sky, thin fog between ridges, a few farmers' huts, tiny figures with conical hats, layers of green and gold, ultra-wide view with deep depth. Narrow irrigation channels cut through the terraces, a farmer's rice hat hangs on a post, rows of seedlings are sharp and green, and the pink dawn light on the water gives the entire hillside a gentle shine."
+ },
+ {
+  "id": 104,
+  "prompt": "Photograph of an autumn forest road in the mountains, an aisle of red and orange maple trees forming a tunnel, a light mist, golden sunbeams streaking through leaves, fallen leaves covering the asphalt, a single red car in the distance, warm color saturation. A small stream runs along the road's edge, lines of yellow leaves float on the water, backlit leaves glow like stained glass, and a faint mist adds softness to the distant bend of the road."
+ },
+ {
+  "id": 105,
+  "prompt": "Photograph of a vast lavender field in Provence at sunset, straight purple rows converging toward a stone farmhouse with a lone cypress tree, soft pink-gold clouds, hazy distant hills, a fine layer of warm light on the flowers, wide-angle depth. A weathered stone wall borders the field, small white butterflies hover above the flowers, a faint haze of pollen glows in the light, and the horizon is soft with warm pink and orange clouds."
+ },
+ {
+  "id": 106,
+  "prompt": "Dramatic landscape photograph of a lone snow-covered pine on a rocky outcrop above a sea of clouds at blue hour, distant peaks catching the last pink light, stars beginning to appear, long exposure soft clouds, cold crisp tones. Fine ice crystals cling to the pine's branches, a distant ridgeline glows pink, a frozen stream pattern curves in the lower left, and the colors shift from deep blue in the foreground to blush near the peaks."
+ },
+ {
+  "id": 107,
+  "prompt": "Photograph of a desert canyon with smooth orange sandstone walls, a narrow beam of light falling on swirling rock, a hiker silhouetted at the bottom for scale, warm reflective glow, fine sand ripples in the foreground, high dynamic range. The rock walls have fine curved layers in orange, pink and purple, the sunbeam picks out floating sand, the hiker wears a bright red jacket, and a narrow strip of blue sky is visible at the very top."
+ },
+ {
+  "id": 108,
+  "prompt": "Photograph of a tropical beach lagoon seen from a drone, turquoise water with sand patterns, a wooden jetty reaching out to a tiny hut, a small white boat anchored, white surf along a coral reef edge, bright midday sun, vivid colors. Faint wave patterns surround the jetty, small fish shadows move in the shallows, a lone palm leans over the hut roof, and the colors range from deep sapphire to pale emerald in a sharp aerial view."
+ },
+ {
+  "id": 109,
+  "prompt": "Photograph of the northern lights over a frozen lake in Norway, green and violet curtains in the sky, a small red cabin with a lit window on the shore, snow-covered pines, star trails, reflections on thin ice, serene tones, long exposure detail. Pale ripples shimmer on the lake near the cabin, a trail of smoke rises from the chimney, bright stars scatter above the forest line, and the aurora's fine rays reflect softly on the snow."
+ },
+ {
+  "id": 110,
+  "prompt": "Photograph of a thunderstorm over a golden wheat field, a supercell with a dramatic wall cloud, a lightning bolt striking the horizon, a lone tractor in the foreground, low-angle view, contrast between warm grain and dark steel-blue clouds. A lone fence line leads into the storm, wheat sways in wind, lightning branches in the clouds, a farmhouse with a silo shines in a patch of light, and heavy rain streaks hang under the wall cloud."
+ },
+ {
+  "id": 111,
+  "prompt": "Misty bamboo forest photograph, tall green stalks fading into white fog, a stone path with a lone person in a straw hat walking away, soft diffuse morning light, delicate shades of green and grey, vertical composition with strong rhythm. Thin bamboo leaves glow in the fog, the cobbled path is wet and dark, the walker's back is small against the wide misty forest, and a few fallen leaves lie scattered along the edges."
+ },
+ {
+  "id": 112,
+  "prompt": "Photograph of a classic red 1960s convertible parked on a coastal highway at sunset, chrome bumpers catching the light, ocean cliffs behind, long road curving into the distance, warm retro color grade, low camera angle, slight heat haze. The car's chrome has bright reflections of orange sky, a small palm tree grows on the roadside, the ocean's surface is a field of sparkling gold, and the dashed center line curves smoothly into the distance."
+ },
+ {
+  "id": 113,
+  "prompt": "Photograph of a modern electric sports car in metallic matte green racing through a rainy mountain tunnel, light trails behind, rain spray from the tires, motion blur on the background and sharp car body, a dramatic panning shot, cool blues with orange reflections. Rain spray streams off the rear wheels, the tunnel's yellow lamps pass in streaks, the car's headlights are twin white blades, and the road surface shines with reflections of the walls in sharp detail."
+ },
+ {
+  "id": 114,
+  "prompt": "Studio photograph of a vintage Vespa scooter in pastel mint green against a plain cream wall with a potted lemon tree beside it, hard morning sunlight, crisp shadows, subtle paint wear, leather seat with stitching details, a retro Italian summer mood. The scooter's round headlight and chrome mirror shine, a few lemons lie on the ground, shadows of leaves fall on the wall behind, and the paint has tiny chips and sun-faded patches in a charming, nostalgic way."
+ },
+ {
+  "id": 115,
+  "prompt": "Photograph of a fishing boat in a harbor at golden hour, rust-streaked blue hull, coils of rope and orange buoys on the deck, gulls on the mast, calm water reflecting the warm sky, other boats and a lighthouse softly blurred behind. Ropes, nets and crates lie on the quay, a fisherman in rubber boots mends a line on the next boat, a thin line of smoke rises from a galley, and the warm light turns the water into hammered copper."
+ },
+ {
+  "id": 116,
+  "prompt": "Photograph of an old locomotive crossing a stone viaduct over a deep green valley, white steam trailing in the wind, a long line of vintage carriages, late afternoon side light, a river far below, detailed masonry arches and lush hillsides. The drivers' wheels and connecting rods gleam with oil, passengers wave from the open windows, the green hills shine in the light, and the bridge's long arches repeat down the valley in perfect rhythm."
+ },
+ {
+  "id": 117,
+  "prompt": "Dramatic photograph of an air show: a pair of fighter jets flying in tight formation upside down with smoke trails of red, white and blue crossing a clear sky, a crowd as tiny dots below, crisp aircraft details, sunlit metal. Pilots' helmets reflect the sun, wing tips are within a meter of each other, the contrails curl at the end of the loop, and a cluster of small white tents and cars dot the airfield below."
+ },
+ {
+  "id": 118,
+  "prompt": "Wide photograph of a crowded Indian street market at midday, colorful stalls of spices in pyramid heaps, women in bright saris, a rickshaw weaving through, hanging marigold garlands, hazy sunlight filtering through awnings, dense lively composition with many small details. A boy carries a stack of bright baskets on his head, spice pyramids glow in orange, red and yellow, laundry hangs from the balconies above, and a stray dog naps in the shade of a cart."
+ },
+ {
+  "id": 119,
+  "prompt": "Photograph of a large crowd at a music festival at night, hands in the air, laser beams and colored stage lights cutting through haze, a silhouetted guitarist on a distant stage, confetti in the air, vivid magenta and blue lights, sense of energy and scale. Fireworks of lasers cross in the haze, glowing wristbands light up the audience, a drone with a light hovers above the crowd, and bright smoke trails make streaks of color in the dark sky."
+ },
+ {
+  "id": 120,
+  "prompt": "Photograph of rush hour at Shibuya crossing from above, hundreds of people crossing in all directions with umbrellas, taxis waiting, giant video screens on the buildings, a slight rain, wet reflective road, dense patterns of motion, evening lights. Glowing building screens show colorful advertisements, the crowd flows in diagonal paths, yellow taxis wait at the light, and reflections of umbrellas, neon and headlights create a lively mosaic on the wet crossing."
+ },
+ {
+  "id": 121,
+  "prompt": "Photograph of a rainy outdoor Christmas market in a German town, wooden stalls with fairy lights, steaming mugs of mulled wine, people in coats and scarves, a lit giant fir tree in the center, wet cobblestones, warm glowing atmosphere with blurred figures. Gingerbread and handmade ornaments hang over the stalls, a child in a red hat holds a paper cone of roasted chestnuts, the church spire rises in the blue evening, and frost glitters on the stall roofs."
+ },
+ {
+  "id": 122,
+  "prompt": "Low-light photograph of an abandoned subway station lit only by a single flashlight beam revealing peeling tiles, a graffiti tag and a pile of dusty benches, a water puddle reflecting the beam, deep shadows, floating dust, eerie silence, high ISO grain. The beam reveals a sign with faded lettering, dust particles glow in the light, rust runs down the pillars, a faint puddle shimmers, and the dark platform edge disappears into utter blackness."
+ },
+ {
+  "id": 123,
+  "prompt": "Low-light photograph of a candlelit dinner table for two with a white tablecloth, flickering candles, two glasses of red wine and a plate of pasta, dim restaurant background with soft bokeh, warm amber glow on cutlery, intimate romantic mood. The wine glass glimmers, a candle is reflected in the polished cutlery, a small bouquet of roses sits in a vase, the bokeh of other diners' lamps adds golden dots, and the mood is warm and intimate."
+ },
+ {
+  "id": 124,
+  "prompt": "Night photograph of a small campsite in the forest, an orange tent glowing from inside, a campfire with sparks rising, a figure sitting on a log, towering dark pines and a sky of dense stars, a hint of milky way, smoke curling, rich contrast of warm and cold. Sparks leap from the fire, the tent's fabric glows with a warm orange tone, a small kettle hangs over the flames, a faint trail of satellites crosses the stars, and the trees' silhouettes frame the picture."
+ },
+ {
+  "id": 125,
+  "prompt": "High-key photograph of a minimalist white bathroom with a freestanding stone bathtub, a single eucalyptus branch in a vase, soft diffused daylight from a frosted window, pale wood stool and folded towels, subtle shadows, spa-like clean atmosphere. The tub's smooth stone curves catch light, a bath mat of white cotton lies on the floor, soft shadows of eucalyptus leaves fall on the wall, and the whole scene is bright, serene and refreshingly clean."
+ },
+ {
+  "id": 126,
+  "prompt": "High-key portrait of a young man with curly hair and round glasses laughing on a white background, wearing a pale yellow knit sweater, bright even lighting with minimal shadow, natural expression, crisp eyelashes and skin texture, fresh airy feeling. His cheeks are a little pink, a tiny gap shows in his smile, the knit texture is clear, a few curls fall across his forehead, and the white background glows evenly with almost no shadows."
+ },
+ {
+  "id": 127,
+  "prompt": "Overexposed dreamy photograph of a child blowing dandelion seeds in a sunlit meadow, backlit fluffy seeds glowing like stars, soft white haze at the edges, pastel color palette, shallow depth of field, gentle film softness, nostalgic summer feeling. Seeds drift in bright arcs, the child's hair is lit by a golden rim, tiny white flowers dot the grass, a pale sky fades to cream at the top, and the whole image is soft, warm and nostalgic."
+ },
+ {
+  "id": 128,
+  "prompt": "Photograph of a stormy sea with a lone sailboat heeled over under a dark sky, white spray across the deck, crew in yellow oilskins, long waves with foamy crests, a narrow bright slit of sunset on the horizon, dramatic contrast, high shutter speed detail. Foam races across the deck, one crew member hangs far out over the side, the sail is taut and translucent, the horizon is a dark line under a bright gold crack of light, and the waves have deep green shading."
+ },
+ {
+  "id": 129,
+  "prompt": "Photograph of a snowy Japanese village with thatched-roof farmhouses at twilight, warm light glowing from the windows, thick soft snow on the roofs, smoke rising from chimneys, a path with footprints, deep blue sky and a few stars, peaceful quiet mood. Icicles hang from the eaves, a small shrine stands at the village edge, snow flurries glow in the window light, long blue shadows lie across the footprints, and the stars and mountains give the dusk a peaceful depth."
+ },
+ {
+  "id": 130,
+  "prompt": "Photograph of a cobblestone Italian piazza at sunrise, a fountain with a statue, empty cafe tables with chairs stacked, pastel yellow and ochre buildings, long pale shadows, a few pigeons, a waiter opening shutters, soft golden light, architectural detail. The fountain's stone figures spout bright water, a few early walkers cross the square, laundry lines hang between upper windows, and the warm light on the pastel walls contrasts with cool blue shadows."
+ },
+ {
+  "id": 131,
+  "prompt": "Photograph of the interior of a futuristic airport terminal with white curved ribs, a glass roof flooding the space with light, a few travelers with luggage as small figures, a wide polished floor with reflections, a minimal sign hanging, clean and airy atmosphere. Long benches sit under skylights, a bright red sculpture stands near the center, the glass shows distant planes parked at the gates, and the shadows of the ribbed roof create a gentle pattern on the floor."
+ },
+ {
+  "id": 132,
+  "prompt": "Photograph of a Moroccan riad courtyard with a turquoise tiled fountain, carved plaster arches, hanging brass lanterns, potted palms, intricate zellige mosaic patterns on the floor, warm sunlight and cool shade creating strong contrast, a cat sleeping on a step. Cats and ceramic pots are scattered around, light falls on a carved cedar door, the water in the fountain is clear, and the tiled floor shows a complex blue, green and white pattern in sharp detail."
+ },
+ {
+  "id": 133,
+  "prompt": "Photograph of a cliffside village in Santorini with blue-domed churches and white cubic houses, bright afternoon sun, deep blue sea and sky, magenta bougainvillea spilling over a wall, narrow stairs, crisp detail, travel photography. White stair lanes wind among the houses, tiny flower pots line the whitewashed steps, a donkey stands in the shade of an arch, and the bright blue of the dome stands against deep ocean in strong midday light."
+ },
+ {
+  "id": 134,
+  "prompt": "Photograph of a rainy highway overpass at night with long streaks of red and white car lights, wet asphalt reflections, glowing exit signs and an orange sodium-lamp glow, an empty bus stop in the foreground, a cinematic moody look, long exposure. The bus stop's glass has water streaks, a lone person in a raincoat waits at the edge, a bridge's light poles repeat in the distance, and the red taillights make soft streaks along the curved road."
+ },
+ {
+  "id": 135,
+  "prompt": "Photograph of a quiet suburban street at dusk in the 1980s, a kid riding a BMX bike past neat garages and basketball hoops, orange sky, a station wagon in a driveway, flickering TV light in windows, warm nostalgic film grain. Sprinklers spray the lawns, a mailbox and a garden gnome stand by a hedge, the kid has a striped shirt and a backpack, and the faint orange of sunset warms the rooftops and a distant water tower."
+ },
+ {
+  "id": 136,
+  "prompt": "Photograph of a lush greenhouse interior with arched white glass roof, giant tropical leaves and orchids, mist from a sprinkler system, sunlight forming bright beams, a curving wrought-iron bench, humid glow, saturated greens with pops of pink. Orchids hang from the beams, the glass roof's metal frame is painted white, water drips from huge leaves, a gardener with a watering can walks along the path, and soft mist lights up in sunbeams."
+ },
+ {
+  "id": 137,
+  "prompt": "Photograph of a snow-covered Alpine ski resort at midday, skiers carving down a groomed slope, a cable car high above, the Matterhorn-like peak in the background under a brilliant blue sky, blowing powder and crisp shadows, vivid winter sports atmosphere. Skiers' bright jackets pop against the white slope, spray flies from sharp turns, the pine trees at the edge are heavy with snow, and tiny gondolas hang from the line against the rich blue sky."
+ },
+ {
+  "id": 138,
+  "prompt": "Photograph of an old stone bridge over a mossy forest stream, soft long-exposure water over rocks, ferns and moss everywhere, shafts of green light, mist, a fallen log, quiet fairytale atmosphere, rich greens, fine texture in the stone. Wet stones gleam with green algae, the arch of the bridge forms a perfect circle with its reflection, small waterfalls spill between boulders, and filtered light creates glowing patches on the moss."
+ },
+ {
+  "id": 139,
+  "prompt": "Photograph of a lighthouse at sunset on a cliff in Brittany, orange sunlight on white walls, purple clouds, a sea with gentle waves, wildflowers in the foreground, a lone hiker on the path, fine detail, wide dynamic range. The white tower has a red lamp room, waves break against black rocks, thrift flowers in pink dot the grass, wispy clouds turn violet, and the path leads the eye toward the horizon."
+ },
+ {
+  "id": 140,
+  "prompt": "Photograph of a skate park at golden hour, a teenager mid-air above a concrete bowl on a skateboard, graffiti murals on the walls, long warm shadows, friends watching from the edge, dust sparkling in the light, motion frozen, sharp and energetic. His shadow stretches over the concrete, the deck's grip tape shows scuffs, his friends hold up their phones, colorful stickers cover a nearby rail, and dust and chalk dots glow in the low sun."
+ },
+ {
+  "id": 141,
+  "prompt": "Photograph of the interior of a Gothic cathedral looking down the nave, stained-glass windows throwing colored beams across stone columns, a few candles flickering, a distant altar, soaring ribbed vaults, dust in the air, awe-inspiring scale. Rows of dark wooden pews lead the eye forward, a rose window glows deep blue and red, columns rise like trees into the vault, and a visitor in a dark coat stands very small in the aisle."
+ },
+ {
+  "id": 142,
+  "prompt": "Photograph of a night harbor city skyline from across the water, skyscrapers lit in blue and gold, a ferry crossing with trailing light, calm reflections stretching across the bay, a long exposure, a purple-blue twilight sky, crisp detail. Hundreds of windows reflect on the water, the ferry's wake spreads in long ripples, a bridge arches across the right, and thin clouds above the skyline turn from deep indigo to lilac."
+ },
+ {
+  "id": 143,
+  "prompt": "Aerial photograph of a vibrant coral-colored salt farm with geometric pools in pink, green and orange next to a blue sea, a tiny worker walking on a thin dike, abstract patterns, high midday sun, ultra sharp. Rectangular pools of coral, jade and cream form a patchwork, white salt piles stand in neat rows, a thin path divides the shapes, and the sea at the edge is a rich, deep blue."
+ },
+ {
+  "id": 144,
+  "prompt": "Photograph of an old wooden fishing hut on stilts in a misty lake at dawn, a rowboat tied beside it, reeds in the foreground, a pale peach sky, perfectly still water mirroring the scene, quiet and minimal, fine film grain. Wooden planks show silver-grey weathering, a lantern hangs on the corner, ripples spread from the boat, reeds bend in the faint breeze, and the faint pink glow on the horizon fades gradually into pale blue."
+ },
+ {
+  "id": 145,
+  "prompt": "Photograph of a modern glass skyscraper from a worm's-eye view, converging lines against a clear blue sky, a window cleaner on a rope far above, reflections of other buildings and clouds in the glazing, sharp geometric pattern, high contrast. The facade is a grid of blue-green reflecting glass, the sun is a bright flare at one edge, drifting clouds are mirrored in the windows, and fine metal frames create crisp diagonal lines."
+ },
+ {
+  "id": 146,
+  "prompt": "Minimalist flat vector poster of a mountain sunrise in orange and deep teal, the title \"WILD NORTH\" in large bold white sans-serif capitals across the upper third, a smaller subtitle \"Trail Festival 2026\" in thin letters beneath it, a row of small pine-tree icons along the bottom edge, clean geometric shapes, subtle paper texture. Sharp triangular peaks overlap in layers of flat color, a thin white sun disc sits low, all the lettering is crisp, perfectly legible and well aligned with generous margins, and a grainy print texture covers the whole sheet."
+ },
+ {
+  "id": 147,
+  "prompt": "Vintage travel poster in screen-print style showing a steam ferry crossing a blue bay toward a white city on hills, the words \"VISIT LISBON\" in tall cream letters on a red banner at the top, a small line \"Sun, Sea & Tiles\" at the bottom in a rounded script, limited palette of red, navy and cream, grainy ink texture. Small sailing boats dot the water, white buildings with orange roofs climb the hill, the red banner contains the letters in clean cream, the lower line is neatly centered, and the whole poster is in a flat, vintage printed style."
+ },
+ {
+  "id": 148,
+  "prompt": "Photograph of a corner coffee shop's chalkboard sign on the sidewalk, handwritten white chalk reading \"TODAY'S SPECIAL\" at the top, below it \"Oat Flat White - 4.50\" and \"Almond Croissant - 3.00\", small chalk drawings of a coffee cup and wheat stalk, wooden frame, soft morning light, blurred street behind. The chalk letters are clean and legible, the board has smudges and a few dusty fingerprints, a potted plant sits beside it, a customer walks past out of focus, and the warm sun makes the wood frame glow."
+ },
+ {
+  "id": 149,
+  "prompt": "Neon sign photograph at night: a glowing pink and blue cursive sign reading \"Midnight Noodles\" mounted on a brick wall, tube lights with soft halos, a small arrow pointing down to a doorway, light reflecting on the wet pavement, a bicycle parked beneath, cinematic mood. Every neon tube bends in a smooth curve, the letters are clearly readable with a gentle glow, a faint haze surrounds the sign, a puddle underneath shows the colors, and the old bricks are rough and dark."
+ },
+ {
+  "id": 150,
+  "prompt": "Infographic poster on a clean white background titled \"HOW A RAINBOW FORMS\" in bold dark-blue letters, a simple diagram of sunlight entering a raindrop, splitting into colors, with three numbered steps labeled \"1 Refraction\", \"2 Reflection\", \"3 Dispersion\", colorful arrows and a small sun icon, flat illustration style, tidy layout. Small cartoon illustrations accompany each step, the numbers are in circles, the layout is evenly spaced, the text is crisp and perfectly readable, and a light blue sky and sunbeams fill the background."
+ },
+ {
+  "id": 151,
+  "prompt": "Flat design infographic card about sleep: the headline \"8 HOURS\" in huge navy numerals at the top, beneath it a row of four circular icons labeled \"Dark\", \"Cool\", \"Quiet\", \"Routine\", a soft purple moon and stars illustration in the corner, rounded fonts, pastel background, balanced spacing. Little illustrated icons of a moon, a snowflake, a speaker and a clock sit inside the circles, the text is crisp and legible, the rounded corners and shadows give a soft modern look, and the layout is balanced."
+ },
+ {
+  "id": 152,
+  "prompt": "Vintage-style product label for craft hot sauce: a red chili illustration inside a circular badge, the brand name \"DRAGON BREATH\" in bold slab-serif letters, a smaller line \"Extra Hot Pepper Sauce\" beneath, \"5 FL OZ\" in tiny print at the bottom, cream paper with black and red inks, ornate border, realistic bottle label photographed on a glass bottle. A bold illustrated dragon curls near the pepper on the label, the typography is heavy, perfectly legible and well spaced, the glass bottle reflects window light, and the cork stopper is sealed with red wax."
+ },
+ {
+  "id": 153,
+  "prompt": "Movie poster style illustration of a lone astronaut on a red desert dune looking at two suns, the title \"THE LAST SIGNAL\" in tall metallic silver letters at the bottom, a tagline \"Somebody is still listening\" in small italic text above the title, dramatic orange and teal grading, cinematic composition with lots of negative space. The astronaut's long shadow stretches over the dunes, the title and tagline are crisp and clearly readable, thin film credits in tiny letters run at the very bottom, and the poster feels epic and quiet."
+ },
+ {
+  "id": 154,
+  "prompt": "Chinese traditional New Year poster in red and gold, a cartoon dragon curling around lanterns, large calligraphy \"新年快乐\" in the center in bold gold brush strokes, a smaller line \"万事如意\" below it, paper-cut patterns, plum blossoms in the corners, festive flat illustration style. The characters are bold, golden and well aligned, with soft brush texture, clouds of auspicious pattern surround the dragon, tassels hang beneath the lanterns, and every Chinese character is clearly readable."
+ },
+ {
+  "id": 155,
+  "prompt": "Product shot of a tea tin standing on a bamboo mat, the front label with a green mountain illustration and the Chinese text \"云雾绿茶\" in vertical black brush calligraphy, the English line \"Cloud Mist Green Tea\" in small serif capitals at the bottom, soft side light, steaming cup nearby, minimalist natural palette. The tin has a slight brushed metal gloss, loose green tea leaves spread in front, the Chinese calligraphy is dark and elegant, the English line is small but readable, and a steaming cup sits behind."
+ },
+ {
+  "id": 156,
+  "prompt": "Street photograph of a Hong Kong neon-lit shop front at night with a vertical sign reading \"海鲜酒家\" in glowing red characters and a smaller sign \"OPEN 24 HOURS\" in blue, wet road reflections, a taxi passing with motion blur, hanging air conditioners, dense signage, cinematic. Overlapping signs in red, blue and yellow glow in the humid air, cables sag overhead, a double-decker bus passes in the background, and the Chinese characters and English letters are readable and bright."
+ },
+ {
+  "id": 157,
+  "prompt": "Book cover design: a minimalist illustration of a small paper boat on a big dark ocean under a crescent moon, the title \"THE QUIET TIDE\" in large off-white serif capitals at the top, the author line \"A. M. Verhoeven\" in small letters at the bottom, deep navy and pale gold palette, subtle texture, flat layout. Waves of dark blue make a wide shape, the little boat is outlined in pale gold, the title and the author's name are well aligned with lots of calm space, and the cover has a soft linen-like texture."
+ },
+ {
+  "id": 158,
+  "prompt": "Photograph of an open hardcover notebook on a wooden desk with handwritten blue-ink notes, the heading \"Project Atlas - Week 3\" underlined at the top, a short bulleted list \"• map the data\", \"• test the model\", \"• write the report\", a pen, a coffee cup, natural window light, shallow depth of field. The handwriting is neat and slightly slanted, the bullets are drawn as small dots, the paper has faint blue lines, the pen cap lies beside it, and a morning light casts soft shadows over the page."
+ },
+ {
+  "id": 159,
+  "prompt": "UI mockup of a mobile weather app on a modern smartphone screen, large \"18°\" temperature in white at the top, \"Partly Cloudy\" below, a row of five small cards labeled \"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\" each with a sun or cloud icon and a number, a soft blue gradient background, rounded glassy cards, clean typography. The phone is held at a slight angle, a subtle shadow falls under the cards, the text is crisp and perfectly legible, small icons are clean, and the soft blue gradient glows near the bottom."
+ },
+ {
+  "id": 160,
+  "prompt": "Dashboard UI design for a fitness tracker app, a dark theme screen with a large circular progress ring in the center reading \"8,432 steps\", three smaller ring widgets labeled \"Move\", \"Exercise\", \"Stand\", a bar chart for the week with day letters \"M T W T F S S\", neon green and orange accents, polished sans-serif text. The interface has dark rounded cards with subtle shadows, the numerals are large and clean, the bars are green and orange with small value dots, and all text is sharp and well aligned."
+ },
+ {
+  "id": 161,
+  "prompt": "Web page mockup on a laptop screen: a landing page for a coffee brand with a large headline \"Wake up to better coffee\" in dark brown serif font, a subtitle line below, a rounded orange button labeled \"Shop Now\", a hero photo of a coffee bag on the right, navigation bar with \"Home\", \"Beans\", \"About\", \"Cart\", clean layout, laptop on a wooden desk. The laptop screen glows softly, the page has plenty of white space, the coffee bag photo is warm and detailed, the headline and menu text are crisp, and a small plant and notebook sit beside the keyboard."
+ },
+ {
+  "id": 162,
+  "prompt": "Screenshot-style illustration of a chat app conversation with soft rounded speech bubbles: a grey bubble \"Are we still on for lunch?\", a blue bubble \"Yes! 12:30 at the usual place\", a grey bubble \"Perfect, see you there\", a status line \"Delivered\" in small text, a top bar with a round avatar and the name \"Alex\", a clean modern interface. The interface shows tidy spacing between bubbles, time stamps in small grey text, a thin input bar with a send icon at the bottom, a calm white and blue color scheme, and sharp, readable lettering."
+ },
+ {
+  "id": 163,
+  "prompt": "Technical diagram on a blueprint-blue background with white lines: an exploded view of a mechanical gearbox with labeled parts \"Input Shaft\", \"Gear A\", \"Gear B\", \"Output Shaft\", thin leader lines with arrowheads, a title block in the lower right reading \"GEARBOX ASSY 01\", a grid and dimension marks, precise draftsmanship. A fine grid of squares covers the background, dimensions with small arrows run along the edges, all labels are neatly printed in uppercase and fully legible, and the lines are crisp and white."
+ },
+ {
+  "id": 164,
+  "prompt": "Hand-drawn whiteboard diagram photographed in an office: a flowchart with boxes labeled \"Idea\", \"Prototype\", \"Test\", \"Launch\", arrows between them and a loop-back arrow labeled \"Feedback\", drawn in blue and green markers, a few sticky notes on the side, slight glare on the board, a marker on the tray. The markers' ink is slightly shiny, the hand-drawn arrows are neat, the boxes have rounded corners, all the words are clearly readable, and a reflection of a desk lamp sits at the corner of the board."
+ },
+ {
+  "id": 165,
+  "prompt": "Educational poster of the solar system on a dark navy background, eight planets in order with small white labels \"Mercury\", \"Venus\", \"Earth\", \"Mars\", \"Jupiter\", \"Saturn\", \"Uranus\", \"Neptune\", faint orbital rings, a bright sun on the left edge, the title \"OUR SOLAR SYSTEM\" in a bold rounded font at the top. Each planet is drawn in recognizable colors with small relative sizes, the labels are crisp and perfectly aligned beneath their planets, tiny stars fill the dark background, and the sun glows warm orange."
+ },
+ {
+  "id": 166,
+  "prompt": "Street scene photograph of a brick wall with a hand-painted vintage advertisement for lemonade, faded white and yellow letters reading \"DRINK FRESH LEMONADE - 5¢\", a painted glass of lemonade with a straw, chipped paint, a sunlit afternoon, a green door at the edge of the frame, weathered texture. A rusty ladder runs down the wall, the letters are faded but readable, brick lines are uneven, a bicycle is chained to a pipe at the bottom, and the afternoon sun creates sharp diagonal shadows."
+ },
+ {
+  "id": 167,
+  "prompt": "Photograph of a wooden road sign post in a mountain forest with three arrow-shaped boards reading \"LAKE 2 km\", \"SUMMIT 5 km\" and \"HUT 800 m\", carved white lettering on dark brown wood, moss on the post, trail marks painted on trees, soft morning mist, shallow depth of field. The wood boards are cracked and mossy, the white carved letters are clean and readable, a hiking boot lies near the post, tall grass sways around it, and the sunlight makes soft dappled patterns through the leaves."
+ },
+ {
+  "id": 168,
+  "prompt": "Airport departure board photographed in a dim terminal, an amber-on-black display with rows reading \"PARIS  AF 1234  10:45  ON TIME\", \"TOKYO  JL 0044  11:20  DELAYED\", \"NEW YORK  UA 0900  12:05  BOARDING\", slightly out-of-focus travelers in the foreground, crisp mechanical lettering, reflection on the glass. The monitor's rows are cleanly aligned in three columns, the text glows amber against black, a tired traveler with a backpack is out of focus in the lower left, and the glass reflects the ceiling lights."
+ },
+ {
+  "id": 169,
+  "prompt": "Restaurant menu card design on a kraft paper background, the heading \"THE GREEN TABLE\" in elegant serif capitals, three sections \"Starters\", \"Mains\", \"Desserts\" each with two items such as \"Roasted Beet Salad\" and \"Mushroom Risotto\", dotted lines to prices, a small hand-drawn leaf icon, neat typographic layout, shot from above with a fork on the side. The paper has a gentle speckle, each section is neatly aligned, tiny illustrations of herbs sit beside the items, a steaming cup of tea is placed in a corner, and all text is crisp and perfectly readable."
+ },
+ {
+  "id": 170,
+  "prompt": "Retro video game arcade cabinet photographed in a dark room, the marquee glowing with the title \"COSMIC RACER\" in chrome bubble letters, a pixel-art spaceship on the screen with a score \"HI-SCORE 048200\" at the top, joystick and red buttons, neon purple and teal light spilling on the carpet. The cabinet's joystick is shiny, the screen glows with pixel stars and enemies, colorful scanlines run across the monitor, a row of quarters sits on the coin tray, and the readable lettering shines in bright colors."
+ },
+ {
+  "id": 171,
+  "prompt": "Product packaging photograph of a minimalist cardboard box of oat cookies with a cute illustrated sheaf of wheat, the name \"OATIE\" in chunky friendly lettering, a small line \"baked with real honey\" beneath, a green and cream palette, the box on a pale wooden table with a few cookies, soft natural light. The box has a small window showing cookies, a ribbon of oat grains runs across the bottom, the typography is clean and neatly placed, and the soft shadows and subtle crumbs add a handmade charm."
+ },
+ {
+  "id": 172,
+  "prompt": "Photograph of a handwritten birthday card standing on a table among flowers, cream card with cursive blue ink text \"Happy Birthday, Mia!\" on the front, a small hand-painted watercolor of balloons below, a ribbon, soft window light, shallow depth of field, tender mood. The handwriting is graceful with loops, there are tiny watercolor balloons in pink, blue and yellow, a vase of daisies stands behind, and the soft light makes the card look warm and personal."
+ },
+ {
+  "id": 173,
+  "prompt": "Close-up of a city bus stop shelter at dusk, a backlit advertisement panel showing a smiling cartoon sun and the slogan \"Slow down. Enjoy the ride.\" in bold white letters on a bright blue background, a route schedule board beside it with \"Line 42\", rain beading on the glass, commuters blurred behind. Water drops run down the glass, the bus shelter has an orange bench and a trash bin, the route text is white on dark blue and clear, and the evening city lights glow softly beyond."
+ },
+ {
+  "id": 174,
+  "prompt": "Skateboard deck design flat lay on a concrete floor, the graphic showing a wild-eyed cartoon cat riding a rocket, the lettering \"NINE LIVES\" in drippy yellow letters on a purple background, sticker-like bold outlines, scuffed edges of the wood, hard sunlight, sharp shadows. The paint on the grip is worn, the cat's expression is manic with big white eyes, the rocket flames in orange and pink are bold, the lettering is thick and perfectly readable, and a pair of sneakers stands at the edge."
+ },
+ {
+  "id": 175,
+  "prompt": "Art-deco styled concert poster in gold and black, a symmetrical fan-shaped sunburst, the headline \"JAZZ NIGHT\" in tall geometric gold capitals, below it \"Live at The Blue Room\" and \"Saturday 9 PM\", a stylized saxophone icon, clean ornamental border, metallic gold foil texture. Thin gold lines frame the poster, small stars and diamonds decorate the border, all the lettering is crisp, evenly spaced and legible, and the black background has a faint noise texture."
+ },
+ {
+  "id": 176,
+  "prompt": "Photograph of a small-town cinema marquee at dusk with white plastic letters on a black board reading \"NOW SHOWING: A SUMMER IN PARIS\", the bulbs around the sign glowing warm, a poster case beside the ticket booth, a wet sidewalk and a car passing, nostalgic Americana atmosphere. The marquee's letters are in white plastic with a slight shadow, the bulbs flicker warmly, a vintage car is parked at the curb, and the evening sky is a gentle violet with a few early stars."
+ },
+ {
+  "id": 177,
+  "prompt": "Scientific figure style illustration of a plant cell cut-away on a light background with thin leader lines and clean sans-serif labels \"Nucleus\", \"Chloroplast\", \"Cell Wall\", \"Vacuole\", \"Mitochondrion\", bright but accurate colors, soft shading, a caption at the bottom \"Figure 1: Plant cell\", textbook layout. Cross-section lines are shown with soft gradients, the leader lines are thin and neat, each label is sharp and readable, and the layout leaves a clean space around the figure and caption."
+ },
+ {
+  "id": 178,
+  "prompt": "Chinese poster for a local tea house festival: a painted ink-wash teapot and cups on the left, vertical title \"品茶雅集\" in black brush calligraphy on the right, smaller text \"周六下午三点\" and \"欢迎参加\" below it, an orange seal stamp, cream rice-paper background, restrained elegant composition. A small orange seal is stamped near the lower edge, bamboo leaves lightly brush the corner, the vertical title is bold and readable, the smaller lines are elegant and sharp, and the paper has subtle fibers."
+ },
+ {
+  "id": 179,
+  "prompt": "Photograph of a storefront window of a bookshop at night, gold lettering on the glass \"OLD TOWN BOOKS\" arched over the door, a smaller line \"Est. 1952\", warm lamps lighting stacks of books and a sleeping cat, reflections of the street and rain on the pane, cozy atmosphere. The gold letters are crisp with a small shadow, a cat sleeps beside a stack of old novels, the street glows warm blue outside, and rain drops slide down the glass over the lettering."
+ },
+ {
+  "id": 180,
+  "prompt": "Slide-style presentation graphic: a white background with the title \"Q3 Revenue Growth\" at the top left in bold dark text, a clean bar chart with four bars labeled \"Jul\", \"Aug\", \"Sep\", \"Oct\" in rising heights, value labels \"12\", \"18\", \"27\", \"35\", a green up-arrow with \"+192%\", thin axis lines, corporate flat style. The chart bars are in teal with white labels, the value text is clear, a simple green arrow indicates growth, the slide has a thin footer line and the typography is clean, evenly spaced and fully readable."
+ },
+ {
+  "id": 181,
+  "prompt": "Fantasy tavern signboard hanging from an iron bracket over a cobblestone street, a hand-painted wooden sign showing a golden dragon curled around a mug, the words \"THE GILDED DRAGON\" in carved red letters, weathered paint, lantern light at dusk, medieval timber-framed buildings behind, rich texture. The metal bracket has curls and rivets, the lettering is bold and readable on a dark blue sign with a golden dragon, a lantern flickers nearby, and a quiet street disappears into evening shadows."
+ },
+ {
+  "id": 182,
+  "prompt": "Close-up photograph of a vending machine glowing in a dark parking lot, rows of colorful drinks with tiny labels, a lit panel with the words \"COLD DRINKS\" in blue and \"¥150\" price tags beneath each can, an insect circling the light, wet ground reflections, quiet night mood. The glow lights the pavement, tiny insect shadows move in the light, the price tags are crisp and readable, a puddle reflects the red and blue labels, and the whole parking lot is empty and quiet."
+ },
+ {
+  "id": 183,
+  "prompt": "Photograph of an ornate wooden shop sign above a Chinese medicine store entrance, gold lettering \"同仁堂\" on black lacquer, red lanterns hanging on both sides, a wooden drawer cabinet visible through the doorway, afternoon sun, traditional architectural details, rich warm tones. Red lanterns hang in a row above the doorway, the gold characters are sharp on a black lacquer board, medicine drawers with tiny brass handles line the shelves inside, and the warm light glows on the wooden frame."
+ },
+ {
+  "id": 184,
+  "prompt": "Photograph of a graduation cap resting on a diploma on a desk, the diploma with ornate calligraphy \"Bachelor of Science\" and a red wax seal, a gold tassel, a small bouquet and a camera strap, warm natural light from a window, soft depth of field, sentimental mood. The diploma's border is decorated with fine ornaments, the seal ribbon is deep red, the text is calligraphic but readable, a gold tassel and flowers add color, and the soft background light is warm."
+ },
+ {
+  "id": 185,
+  "prompt": "Cyberpunk-style street signage collage: stacked glowing vertical signs in magenta, cyan and yellow reading \"RAMEN\", \"CYBER CLINIC\", \"24H\" and \"夜市\", wires and steam, rain drops in the air, a robot with an umbrella passing beneath, dense neon atmosphere, dark background. Each sign has its own glow, the cables hang in the foreground, the robot's umbrella reflects pink light, steam drifts around the lower signs, and the letters and Chinese characters are crisp and readable."
+ },
+ {
+  "id": 186,
+  "prompt": "Illustrated map of a fictional island on aged parchment, hand-drawn mountains, forests and a winding river, a compass rose in the corner, place names \"Raven Cove\", \"Misty Peak\", \"Old Mill\" in calligraphic script, a ship in the bay, dotted trail lines, sepia ink with faint watercolor washes. Small trees, a castle and a dragon are sketched on the island, the labels are neatly handwritten in dark ink, the parchment edges are burned and curled, and a faint coffee stain adds an aged feel."
+ },
+ {
+  "id": 187,
+  "prompt": "Packaging design of a bright yellow lemon soda can, with a cartoon smiling lemon and splashing droplets, the brand \"ZESTY\" in huge white bubble letters, a small line \"Sparkling Lemon\" below, \"330 ml\" printed near the bottom, the can on a wet blue surface with condensation, sharp product lighting. Droplets of water slide down the can, a few lemon slices float in the splashes, the brand lettering is bright, perfectly readable and cleanly placed, and the glossy blue background reflects the can."
+ },
+ {
+  "id": 188,
+  "prompt": "Photograph of a classroom blackboard with a teacher's neat chalk writing: \"Photosynthesis\" underlined at the top, an equation \"6CO2 + 6H2O → C6H12O6 + 6O2\", a hand-drawn leaf diagram with arrows labeled \"Sunlight\", chalk dust in the air, wooden desks in the foreground, warm window light. The chalk marks are slightly smudged, the teacher's hand holds a piece of chalk, the formula is written clearly in white, the leaf diagram has green chalk, and the wooden frame of the board is visible."
+ },
+ {
+  "id": 189,
+  "prompt": "Magazine cover layout featuring a close-up of a ginger cat wearing sunglasses, the masthead \"PURR\" in huge red serif capitals at the top, a headline \"The Nine Lives Issue\" on the left, a smaller line \"Why cats rule the internet\" at the bottom, bright pop colors, barcode in the lower corner, crisp print finish. The cat's whiskers curve elegantly, the sunglasses reflect a pink sky, the fonts are bold, clean and aligned with plenty of contrast, and the background is a bright yellow gradient."
+ },
+ {
+  "id": 190,
+  "prompt": "Retro-futuristic instruction manual page: a clean illustration of a chrome toaster with arrows pointing to its parts labeled \"Lever\", \"Slot\", \"Dial\", a step list \"1 Insert bread\", \"2 Lower lever\", \"3 Wait for the pop\", cream paper, red and teal spot colors, halftone texture, mid-century typographic style. Small grey arrows and lines point to each part, the type is tidy and perfectly readable, the toaster's chrome has simple highlights, and aged paper edges and faint print dots give a nostalgic feel."
+ },
+ {
+  "id": 191,
+  "prompt": "Wide shot of a night market entrance gate with a red banner above in bold white characters \"夜市欢迎您\", below it a row of hanging paper lanterns and a smaller sign \"Open 5 PM - 12 AM\", crowds of people in the blurred background, food smoke in the air, vivid reds and warm yellows, cinematic feel. Strings of lights glow warm yellow, the red banner is wrinkled by wind, the white characters are bold and readable, the smaller English line is crisp, and crowds, smoke and neon surround the entrance."
+ }
+]

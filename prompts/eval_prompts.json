@@ -1,0 +1,146 @@
+[
+ {
+  "id": 0,
+  "seed": 1001,
+  "category": "text",
+  "prompt": "Photograph of a small cheese shop storefront at dusk, a cream-painted facade with a navy hand-lettered sign reading \"LE PETIT FROMAGE\" above the door, a smaller line on the window glass \"Affineur depuis 1974\", warm lamplight falling on wheels of cheese, wooden crates and a ginger cat asleep on the step, a slate board on the pavement saying \"Tasting - Saturday 11 AM\", wet cobblestones reflecting the glow, shallow depth of field. The gold lettering is crisp and clearly readable, the slate writing is neat white chalk, and the rain-slick street shows glowing reflections of the shop windows."
+ },
+ {
+  "id": 1,
+  "seed": 1002,
+  "category": "text",
+  "prompt": "Clean flat-design infographic poster on an off-white background, the title \"WATER CYCLE\" in bold blue sans-serif capitals at the top, a simple illustration of a sun, a cloud, a mountain with a river and a sea, with neat arrows and four labels \"Evaporation\", \"Condensation\", \"Precipitation\", \"Collection\" placed beside each stage, rounded icons, tidy margins, soft pastel blues and greens. Each label sits in a clean rounded box beside its illustration, the lines and arrows are neatly aligned, all text is crisp and perfectly readable, and the layout leaves generous margins around the diagram."
+ },
+ {
+  "id": 2,
+  "seed": 1003,
+  "category": "text",
+  "prompt": "Vintage-style movie poster illustration of a lighthouse keeper's daughter rowing a small boat through storm waves toward a glowing lighthouse, the title \"BEYOND THE BREAKERS\" in large cream serif letters across the bottom, a tagline \"Some lights never go out\" in small italic text above it, painted look with textured brushwork, deep teal sea and warm yellow beam, slight print grain. A swirl of white spray crowns each wave, the girl wears a bright yellow raincoat, the beam of the lighthouse cuts through the storm clouds, and all lettering is sharp, evenly spaced and fully legible."
+ },
+ {
+  "id": 3,
+  "seed": 1004,
+  "category": "text",
+  "prompt": "Mobile app UI mockup shown on a modern phone screen: a music player with a square album cover of a purple sunset, the song title \"Neon Horizon\" in white bold text, the artist line \"Luna Vale\" in grey below, a progress bar at \"1:24 / 3:48\", round play, previous and next buttons, a dark gradient background, polished glassy interface, phone resting on a desk with soft light. Small rounded icons sit beneath the controls, the interface is neatly aligned with crisp white and grey typography, soft shadows give the cards depth, and the phone screen glows gently in the dim room."
+ },
+ {
+  "id": 4,
+  "seed": 1005,
+  "category": "text",
+  "prompt": "Chinese restaurant street scene at night: a large red illuminated signboard reading \"老王面馆\" in bold golden characters, a smaller line \"手工拉面 · 营业至凌晨两点\" underneath, paper lanterns hanging from the eaves, steam escaping from the kitchen door, a few customers seated at metal tables on the sidewalk, wet ground with colorful reflections, cinematic night photography. The golden characters are sharp and evenly spaced on the red board, the second line is smaller but clearly readable, and warm lantern light mixes with cool shadows across the wet pavement and the diners' faces."
+ },
+ {
+  "id": 5,
+  "seed": 1006,
+  "category": "text",
+  "prompt": "Photograph of a roadside fruit stand under a striped awning in the countryside, wooden crates of fruit with hand-painted signs reading \"PEACHES $3\", \"CHERRIES $5\" and \"HONEY $8\", white brush letters on dark green boards, a straw hat hanging on a post, wildflowers in the foreground, rolling hills and a bright blue sky behind, soft morning sun, crisp detail on the painted wood. A few daisies lean against a crate, the painted numbers are perfectly legible, and sunbeams scatter warm highlights across the grain of the weathered wood and the glossy fruit skins."
+ },
+ {
+  "id": 6,
+  "seed": 2001,
+  "category": "portrait",
+  "prompt": "Studio portrait of an elderly Himalayan monk with a shaved head and deeply lined face, wearing a maroon robe with a golden edge, a gentle half-smile and clear dark eyes looking just past the camera, soft window light from the left, a plain warm grey backdrop, fine skin pores, wrinkles and eyebrow hairs resolved, 85mm lens, shallow depth of field. His heavy-lidded eyes are warm and clear, tiny prayer beads loop around his wrist, the robe's wool weave is clearly visible, and the light gently models the bones of his skull and the silver stubble on his chin."
+ },
+ {
+  "id": 7,
+  "seed": 2002,
+  "category": "portrait",
+  "prompt": "Cinematic close-up portrait of a young woman with curly auburn hair and green eyes, wearing a navy turtleneck, standing in a rain-streaked train window at night, colored city lights as soft bokeh circles behind her, a faint reflection of the glass over her cheek, droplets on her eyelashes, teal and amber color grading, subtle film grain. A single red lamp glow on the glass mixes with the cool blue of the night, tiny droplets scatter across her skin, her lips are slightly parted, and the soft grain gives the image a quiet intimate mood."
+ },
+ {
+  "id": 8,
+  "seed": 2003,
+  "category": "portrait",
+  "prompt": "Anime-style portrait of a boy with messy black hair and golden eyes wearing a loose white shirt and a dark green scarf, standing in a field of blue flowers under a wide sky with drifting clouds, a gentle wind blowing his hair and scarf, soft cel shading, delicate detailed highlights in the eyes, pastel painterly background. Her fine hair strands catch the light, drifting petals cross the foreground, the white shirt billows with the breeze, the line art is clean and the eyes are rendered with glossy layered highlights."
+ },
+ {
+  "id": 9,
+  "seed": 2004,
+  "category": "portrait",
+  "prompt": "Environmental portrait of a middle-aged female ceramicist in a sunlit workshop, standing with her arms crossed and clay-smeared linen apron, short grey hair and round glasses, shelves of glazed bowls and vases behind her, warm morning light from a large window, a confident calm smile, natural skin texture, shallow depth of field. Clay crusts her forearms and her apron, her wrinkles around the eyes deepen with the smile, a kiln glows faintly in the background, and the light falling across the shelves is warm, honest and unretouched."
+ },
+ {
+  "id": 10,
+  "seed": 3001,
+  "category": "detail",
+  "prompt": "Extreme close-up photograph of a vintage mechanical typewriter, round chrome-rimmed glass keys with black letters, tiny typebars curled behind them, a sheet of cream paper with a few lines of typed text rolled in, worn enamel, scratches and dust in the crevices, soft side light, razor-thin depth of field, rich texture. Tiny serif letters on each key are readable, the carriage return lever is slightly bent, dust and ink smudges collect around the platen, and the warm light creates soft reflections along the metal rim."
+ },
+ {
+  "id": 11,
+  "seed": 3002,
+  "category": "detail",
+  "prompt": "Macro photograph of a peacock feather's eye, iridescent barbs in turquoise, emerald, gold and violet, each fine strand visible with a metallic sheen, tiny water droplets resting on the surface, dark soft background, studio lighting that shifts the colors, ultra sharp detail, shallow focus at the edges. The barbs overlap like fine silk threads, tiny water drops magnify the underlying texture, soft bokeh in the dark background has warm gold tints, and the photograph shows extreme sharpness at the center of the eye."
+ },
+ {
+  "id": 12,
+  "seed": 3003,
+  "category": "detail",
+  "prompt": "Photograph of an ancient oak tree trunk covered in thick moss, lichen, ferns and tiny mushrooms, deep bark furrows, snails on the surface, rain droplets on every leaf, soft green forest light with mist, fine texture visible all over, natural colors, shallow depth of field in the background. Droplets of water bead on tiny leaves of moss, bracket fungi in cream and orange cling to the bark, a ladybug crawls along a fern, and green light filters softly from above with delicate mist in the air."
+ },
+ {
+  "id": 13,
+  "seed": 3004,
+  "category": "detail",
+  "prompt": "Highly detailed photograph of a chainmail and leather medieval gauntlet resting on a wooden table, individual interlocking metal rings, rivets, stitching and scratches, a worn leather strap, a candle flame casting warm uneven light and long shadows, dust on the metal, dark background, macro lens detail. A single bright highlight runs along each steel ring, stitched seams show tiny dust and wax stains on the leather, the table's wood has deep scratches, and the candle's warm glow fades into complete darkness behind."
+ },
+ {
+  "id": 14,
+  "seed": 4001,
+  "category": "counting",
+  "prompt": "Photograph of exactly five colorful hot air balloons floating over a green valley at sunrise: a red one, an orange one, a yellow one, a blue one and a striped purple one, evenly spread across the sky with distance haze, misty hills, soft golden light, a tiny village below, wide shot. Each balloon has a distinct pattern and a small wicker basket with a tiny pilot, long morning shadows stretch across the fields, wisps of mist hang between hills, and the colors glow warmly in the low sun."
+ },
+ {
+  "id": 15,
+  "seed": 4002,
+  "category": "counting",
+  "prompt": "Studio photograph of exactly three ripe red apples, two yellow pears and one green pear arranged in a wooden bowl on a white linen cloth, each fruit clearly separated and recognizable, soft window light from the left, subtle shadows, a muted grey wall behind, fresh and clean still-life composition. The fruits have small natural blemishes and glossy highlights, the leaves of the pears are fresh, the linen fabric shows fine folds, and the soft shadow of the bowl falls toward the right edge of the table."
+ },
+ {
+  "id": 16,
+  "seed": 5001,
+  "category": "varied",
+  "prompt": "Epic cinematic landscape of a colossal ancient tree growing from the center of a mirror-like lake at twilight, its branches glowing with soft golden lanterns, roots reaching down into clear water, a small wooden boat with one traveler approaching, distant mountains under a deep violet sky with the first stars, painterly fantasy realism. Flowers glow in the water, the bridge between giant roots is lit by a handful of floating candles, a pale mist drifts across the lake, and the stars above are reflected in sharp points in the dark surface."
+ },
+ {
+  "id": 17,
+  "seed": 5002,
+  "category": "varied",
+  "prompt": "Photograph of a rainy neon-lit Seoul street at night, a woman in a clear umbrella and yellow trench coat walking past a row of glowing shop signs, steam from a food cart, reflections on the wet asphalt, taxis blurred in the distance, teal and magenta color palette, 50mm lens, cinematic atmosphere. Her coat is bright and slightly wet, signs in pink, blue and orange glow behind her in blurred bokeh, a scooter passes in the distance, and the street is full of mirrored lights and thin rain streaks."
+ },
+ {
+  "id": 18,
+  "seed": 5003,
+  "category": "varied",
+  "prompt": "Isometric 3D render of a cozy miniature bakery on a floating cube of ground, a pastel pink shop with a striped awning, tiny bread loaves in the window, a chimney puffing white smoke, a little tree, a cobblestone path and a tiny delivery bicycle, soft global illumination, clay-like materials, pastel blue backdrop. A tiny chimney, a delivery scooter, small round bread rolls and a hanging sign with a croissant icon create charming details, the soft shadows are smooth, and the pastel colors are clean and cheerful."
+ },
+ {
+  "id": 19,
+  "seed": 5004,
+  "category": "varied",
+  "prompt": "Wildlife photograph of a brown bear catching a salmon in a rushing river, the fish leaping mid-air with water droplets frozen around it, the bear's wet fur, open mouth and focused eyes, green forest and mist behind, bright overcast light, fast shutter speed, telephoto compression. The bear's fur is soaked and shining, water streams from the salmon's tail, rocks and logs are wet and mossy, the forest in the background is soft green, and the splashes sparkle in the light."
+ },
+ {
+  "id": 20,
+  "seed": 5005,
+  "category": "varied",
+  "prompt": "Watercolor and ink illustration of an old Venetian canal at sunrise, gondolas tied to striped poles, pastel-colored palazzos with arched windows reflected in the green water, a few pigeons on a stone bridge, loose washes with bleeding pigments, fine pen line details, visible paper texture. A small red flower pot hangs on one balcony, laundry lines cross above the canal, the reflections ripple in soft colors, a gondolier in a striped shirt rests his oar, and the paper shows a faint pencil underdrawing."
+ },
+ {
+  "id": 21,
+  "seed": 5006,
+  "category": "varied",
+  "prompt": "Dark fantasy digital painting of a lone knight in battered black armor kneeling before a giant glowing crystal in a ruined cathedral, shafts of cold blue light through broken stained-glass windows, floating dust and embers, torn banners on the pillars, heavy shadows, dramatic scale, richly detailed metal and stone. Ancient runes glow faintly in the stone floor, floating embers drift upward, his helmet lies at his side, a broken sword is planted in the floor, and the light of the crystal casts strong cold edge highlights on the armor."
+ },
+ {
+  "id": 22,
+  "seed": 5007,
+  "category": "varied",
+  "prompt": "High-key bright photograph of a minimalist Scandinavian kitchen with white cabinets, a light oak table set with a ceramic jug of tulips and two cups of coffee, morning sun streaming through a large window to create soft shadows, pale grey floor, a plant on the shelf, clean airy mood. Crumbs and a steaming coffee cup sit on the table, tulip petals cast delicate shadows, a pale wooden chair is pulled back, light bounces off the white cabinets, and the entire scene is bright and calm."
+ },
+ {
+  "id": 23,
+  "seed": 5008,
+  "category": "varied",
+  "prompt": "Low-light photograph of a street food stall in a rainy alley at night, a vendor in a hooded jacket frying dumplings in a large pan, warm yellow bulbs above, rising steam and smoke, a few customers' backs in the foreground, wet pavement with orange reflections, deep shadows, gritty documentary style. Orange oil sizzles in the pan, a pile of dumpling wrappers sits beside a bowl of filling, a customer's hand reaches out with a coin, drops of rain fall under the awning, and the atmosphere is gritty and warm."
+ }
+]
