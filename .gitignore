@@ -11,6 +11,7 @@ data/
 out/
 eval/
 logs/
+models_aux/
 *.log
 
 # images, except the contact sheets shown in the docs

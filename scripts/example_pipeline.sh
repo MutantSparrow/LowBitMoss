@@ -76,3 +76,8 @@ echo "done: $OUT/mixG_tuned.safetensors"
 #     --lr_w 1e-4 --lr_s 2e-3 --out "$OUT/mixH2_lora.safetensors" --log "$LOGS/mixH2_lora.json"
 # run extras_mixH2  "$PY" -I quantize_extras.py --inp "$OUT/mixH2_lora.safetensors" --out "$OUT/mixH2_x.safetensors"
 # run compact_mixH2 "$PY" -I compact_lora.py --inp "$OUT/mixH2_x.safetensors" --out "$OUT/mixH2_x_fp8lora.safetensors"
+
+# 12. Optional, not run by default: HPSv3 aesthetic score of the evaluated models -> eval/hps3_summary.{json,md}. Needs the GPU, the 16.6 GB HPSv3 checkpoint,
+#     the Qwen2-VL-7B-Instruct config/tokenizer files and a clone of the upstream HPSv3 repo in $LOWBITMOSS_AUX (default $LOWBITMOSS_HOME/models_aux, see the README).
+#     category_winners.py (CPU) builds the category table for the 12 models of the reported runs: edit its TAGS and judge table before using it on other models.
+# run hps3 "$PY" -I hps3_score.py --tags teacher_bf16,mixG_x,mixG_tuned
