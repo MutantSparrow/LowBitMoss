@@ -4,7 +4,7 @@
 Writes $LOWBITMOSS_HOME/eval/<tag>/NN_seedSSSS.png and .../latents/NN_seedSSSS.latent (same format as gen_eval.py --save-latent).
 
 On Windows, when VRAM runs short (the desktop, another job, or a process that has run for a while) the driver pages VRAM to system RAM and sampling
-gets 15-40x slower (a 23 s step became 1500 s) and does not recover. So the script runs as a supervisor around a worker process: the worker leaves 2.5 GB
+gets 15-40x slower (a normal image takes about 30 s) and does not recover. So the script runs as a supervisor around a worker process: the worker leaves 2.5 GB
 of VRAM free (reserve_vram), exits with code 3 when one image takes longer than --watchdog seconds, and also exits on purpose after --recycle images;
 the supervisor then restarts it and it skips the images that already exist."""
 import argparse
