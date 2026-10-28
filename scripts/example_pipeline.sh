@@ -68,3 +68,11 @@ run sheet_mixG         "$PY" -I sheet.py --dirs "$EVAL/teacher_bf16" "$EVAL/mixG
 #     copy out/mixG_tuned.safetensors to COMFYUI_DIR/models/diffusion_models/ and use the "MOSS LowBit UNET Loader" node.
 run loader_proxy "$PY" -I test_loader_proxy.py "$OUT/mixG_tuned.safetensors" 24
 echo "done: $OUT/mixG_tuned.safetensors"
+
+# 11. Smaller variant, not run by default: mixH2 (1.95 GB) = the mixH allocation (FFN int2 in blocks 6-35, int3 in 2-5 and 36-39) with a rank-64 LoRA on the
+#     bin/int2 linears and about twice the calibration samples (3000 instead of 1536), no end-to-end tuning. compact_lora.py then stores the LoRA factors
+#     as fp8 (-102 MB, 1.85 GB).
+# run train_mixH2   "$PY" -I train_blocks.py --kind @alloc_mixH.json --loss std --lora_rank 32 --lora_rank_low 64 --n_samples 3000 --holdout 48 --epochs 2 \
+#     --lr_w 1e-4 --lr_s 2e-3 --out "$OUT/mixH2_lora.safetensors" --log "$LOGS/mixH2_lora.json"
+# run extras_mixH2  "$PY" -I quantize_extras.py --inp "$OUT/mixH2_lora.safetensors" --out "$OUT/mixH2_x.safetensors"
+# run compact_mixH2 "$PY" -I compact_lora.py --inp "$OUT/mixH2_x.safetensors" --out "$OUT/mixH2_x_fp8lora.safetensors"

@@ -1,7 +1,12 @@
 """In-process twin of gen_eval.py (no server): same ComfyUI nodes, seeds, sampler settings, file names.
 
     python -I gen_inproc.py --unet out/mixG_x.safetensors --tag mixG_x [--res 768] [--prompts eval|calib] [--bf16]
-Writes $LOWBITMOSS_HOME/eval/<tag>/NN_seedSSSS.png and .../latents/NN_seedSSSS.latent (same format as gen_eval.py --save-latent)."""
+Writes $LOWBITMOSS_HOME/eval/<tag>/NN_seedSSSS.png and .../latents/NN_seedSSSS.latent (same format as gen_eval.py --save-latent).
+
+On Windows, when VRAM runs short (the desktop, another job, or a process that has run for a while) the driver pages VRAM to system RAM and sampling
+gets 15-40x slower (a 23 s step became 1500 s) and does not recover. So the script runs as a supervisor around a worker process: the worker leaves 2.5 GB
+of VRAM free (reserve_vram), exits with code 3 when one image takes longer than --watchdog seconds, and also exits on purpose after --recycle images;
+the supervisor then restarts it and it skips the images that already exist."""
 import argparse
 import importlib
 import json
@@ -17,11 +22,11 @@ from _paths import EVAL, NODES, PROMPTS, comfy_dir
 COMFY = comfy_dir()  # fail before the supervisor starts workers
 if "--child" not in sys.argv:  # supervisor: relaunch the worker (skipping finished images) when its watchdog fires
     cmd = [sys.executable, "-I", os.path.abspath(__file__), "--child", "--skip-existing"] + sys.argv[1:]
-    for attempt in range(1, 6):
+    for attempt in range(1, 13):
         rc = subprocess.call(cmd)
         if rc == 0:
             sys.exit(0)
-        print("gen_inproc: worker exited with %d, restarting (%d/5)" % (rc, attempt), flush=True)
+        print("gen_inproc: worker exited with %d, restarting (%d/12)" % (rc, attempt), flush=True)
     sys.exit(rc)
 
 sys.path.insert(0, COMFY)
@@ -47,7 +52,8 @@ ap.add_argument("--bf16", action="store_true", help="stock loader instead of the
 ap.add_argument("--skip-existing", action="store_true")
 ap.add_argument("--ids", default="", help="comma-separated prompt ids to generate (default: all)")
 ap.add_argument("--child", action="store_true", help="internal: run the worker (the supervisor adds this)")
-ap.add_argument("--watchdog", type=int, default=420, help="seconds after which a single image is considered stalled and the process exits with code 3")
+ap.add_argument("--recycle", type=int, default=5, help="planned restart of the worker after this many images (memory state degrades over a run); 0 = never")
+ap.add_argument("--watchdog", type=int, default=150, help="seconds after which a single image is considered stalled and the process exits with code 3")
 a = ap.parse_args()
 
 NEG = "nsfw, worst quality, bad anatomy, watermark, jpeg artifact"
@@ -77,6 +83,7 @@ def stalled():  # a normal image takes ~30 s; a VRAM-paging stall is 15-40x slow
 
 
 t_all = time.time()
+done_here = 0
 for it in items:
     name = "%02d_seed%d" % (it["id"], it["seed"])
     png = os.path.join(out, name + ".png")
@@ -93,4 +100,8 @@ for it in items:
     save_file({"latent_tensor": lat["samples"].float().cpu().contiguous()}, os.path.join(out, "latents", name + ".latent"))
     watchdog.cancel()
     print("%s  %.1fs" % (name, time.time() - t0), flush=True)
+    done_here += 1
+    if a.recycle and done_here >= a.recycle and it is not items[-1]:
+        print("recycling the worker after %d images" % done_here, flush=True)
+        os._exit(3)
 print("done %d images in %.1f min -> %s" % (len(items), (time.time() - t_all) / 60, out))

@@ -1,7 +1,8 @@
 """Write the per-linear bit allocations (alloc_<tag>.json, used as train_blocks.py --kind @alloc_<tag>.json).
 
 mixA..mixE: greedy allocation from the sensitivity map (alloc.py) at a predicted-error target; needs logs/sens_tern.json.
-mixG / mixH: the attention kinds of mixA with the FFN set by block range (FFN is where the text/count quality lives, see docs/METHOD.md)."""
+mixG / mixH: the attention kinds of mixA with the FFN set by block range (FFN is where the text/count quality lives, see docs/METHOD.md).
+mixI: mixH with 1-bit qkv/o in blocks 6-35 and 1-bit ffn_down in blocks 12-29 (past the quality cliff, see docs/METHOD.md)."""
 import json
 import os
 import sys
@@ -41,3 +42,11 @@ for tag, ranges in FFN.items():
         cfg["blocks"][str(b)]["ffn_up_gate"] = cfg["blocks"][str(b)]["ffn_down"] = "int4"
     write(tag, cfg)
     print("%s: attention of mixA, FFN %s" % (tag, ", ".join("blocks %d-%d %s" % r for r in ranges)))
+
+cfg = json.load(open(os.path.join(HERE, "alloc_mixH.json")))
+for b in range(6, 36):
+    cfg["blocks"][str(b)]["qkv"] = cfg["blocks"][str(b)]["o"] = "bin"
+for b in range(12, 30):
+    cfg["blocks"][str(b)]["ffn_down"] = "bin"
+write("mixI", cfg)
+print("mixI: mixH with qkv/o bin in blocks 6-35, ffn_down bin in blocks 12-29")
