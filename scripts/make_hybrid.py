@@ -48,7 +48,7 @@ def selected(name):
 n = 0
 for name in kinds:
     if selected(name):
-        for suffix in (".weight_scale", ".weight_kind", ".lora_a", ".lora_b"):
+        for suffix in (".weight_scale", ".weight_kind", ".lora_a", ".lora_b", ".lora_a_scale", ".lora_b_scale"):
             sd.pop(name + suffix, None)
         if args.ptq:
             kind = L.KIND_BY_NAME[args.ptq]

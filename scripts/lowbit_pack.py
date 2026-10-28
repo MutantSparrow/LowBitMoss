@@ -9,12 +9,15 @@ kind 5 (tern5) packs 5 ternary codes per byte in base 3 instead: byte = sum_j co
 multiple of 5 along `in`, so X.weight is uint8 [out, ceil(in / 5)]; see packed_cols.
 kind 6 (int3) packs 8 codes per 3 bytes: code j of a group of 8 sits at bit offset 3 * j of a little-endian 24-bit word, so X.weight is
 uint8 [out, in * 3 // 8].
+An optional rank-r correction W = Q + B A is stored as X.lora_a [r, in] and X.lora_b [out, r], either bf16 or compact: float8_e4m3fn plus a
+scalar fp16 X.lora_a_scale / X.lora_b_scale, the effective factor being fp8.float() * scale (lora_to_fp8, lora_from_stored).
 """
 from functools import cache
 
 import torch
 
 GROUP = 128
+FP8_MAX = 448.0  # largest finite float8_e4m3fn; the format has no inf and rounds 464 and above to NaN
 TERN5_BITS = 8 / 5  # bits per code of kind 5; pack_codes / unpack_codes take it as their `bits` argument
 # kind code -> (name, bits per code, offset)
 KINDS = {1: ("bin", 1, 0.5), 2: ("tern", 2, 1.0), 3: ("int2", 2, 1.5), 4: ("int4", 4, 7.5), 5: ("tern5", TERN5_BITS, 1.0), 6: ("int3", 3, 3.5)}
@@ -93,3 +96,24 @@ def quantize_to_codes(w, scale, kind):
     else:
         codes = torch.round(q + offset).clamp_(0, 2 ** bits - 1 if kind not in (2, 5) else 2).to(torch.uint8)
     return codes.reshape(out, n)
+
+
+def lora_to_fp8(t):
+    """low-rank factor -> (float8_e4m3fn tensor, fp16 scalar scale) with the largest |element| at (just under) 448; lora_from_stored(*result) is the factor back"""
+    t = t.float()
+    # e4m3fn has no inf (464 and above becomes NaN), so the fp16 scale is rounded up, never down: |t / scale| <= 448 by construction. No other headroom is needed,
+    # the error of real factors is flat (2.6% relative) for amax / scale anywhere in 14..448. The scale is floored at the smallest fp16 subnormal (all-zero factor).
+    scale = (t.abs().amax() / FP8_MAX).clamp_min(2 ** -24)
+    s16 = scale.half()
+    s16 = torch.where(s16.float() < scale, (s16.view(torch.int16) + 1).view(torch.float16), s16)
+    return (t / s16.float()).to(torch.float8_e4m3fn), s16
+
+
+def lora_from_stored(t, scale=None, dtype=torch.float32):
+    """stored factor (bf16, or float8_e4m3fn with its fp16 scale) -> effective factor in `dtype`; None stays None"""
+    if t is None:
+        return None
+    t = t.float()
+    if scale is not None:
+        t = t * scale.float()
+    return t.to(dtype)

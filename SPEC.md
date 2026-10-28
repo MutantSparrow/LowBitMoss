@@ -16,8 +16,10 @@ For each quantized linear X (the 4 matrices of any of the 42 blocks, optionally 
     X.weight        uint8   [out, in*bits//8]  packed codes (bits per code from the kind; element j of a byte at bit j*bits, LSB first)
     X.weight_scale  float16 [out, in//128]     group size 128 along `in` (`in` must be a multiple of 128)
     X.weight_kind   uint8   scalar             1=bin, 2=tern, 3=int2, 4=int4, 5=tern5, 6=int3
-    X.lora_a        bf16    [r, in]            optional low-rank correction
-    X.lora_b        bf16    [out, r]           optional low-rank correction
+    X.lora_a        bf16    [r, in]            optional low-rank correction (or float8_e4m3fn, see "Compact LoRA")
+    X.lora_b        bf16    [out, r]           optional low-rank correction (or float8_e4m3fn, see "Compact LoRA")
+    X.lora_a_scale  float16 scalar             only next to a float8_e4m3fn X.lora_a
+    X.lora_b_scale  float16 scalar             only next to a float8_e4m3fn X.lora_b
     X.bias                                     stays bf16 under its normal name, if the linear has one
 
 Dequantization: `w = (code - offset[kind]) * scale[:, group]` (+ `lora_b @ lora_a` if present, so `W = Q + B A`).
@@ -56,6 +58,25 @@ there is no padding: `X.weight` is uint8 `[out, in*3//8]` (in=3072 -> 1152 bytes
 scales on `layers.20.proj.ffn_up_gate.weight` of the teacher: int4 0.0107, int3 0.0377, int2 0.122. The loader derives the expected width
 `in*3//8` and rejects any other; a kind-6 linear takes `lora_a`/`lora_b` like every kind. The loader layout's `quantize()` (requantizing a
 patched weight) uses 0.75 * absmean scales for int3. Tests: `scripts/test_int3.py` (CPU only).
+
+## Compact LoRA: float8_e4m3fn factors with a per-tensor scale
+
+The low-rank correction of a quantized linear (`W = Q + B A`, normally bf16 `X.lora_a` `[r, in]` and `X.lora_b` `[out, r]`) may be stored compactly: both
+factors as float8_e4m3fn, each with a scalar (0-dim) fp16 tensor `X.lora_a_scale` / `X.lora_b_scale`; the effective factor is `lora.float() * scale`.
+The scale is `amax(|factor|) / 448` (448 = largest finite e4m3fn value), rounded UP to an fp16 so that nothing overflows (e4m3fn has no inf, 464 and
+above becomes NaN); no further headroom is needed because the error is flat for `amax / scale` anywhere in 14..448. Measured on mixH2_x (270 factors,
+rank 32/64): relative error of a factor `||fp8 - orig|| / ||orig||` 1.7-2.7%, of `B A` 3.7%, of the whole weight `Q + B A` 0.1-0.5%, and the weight error
+against the teacher changes by <= 2e-5 (0.36171 -> 0.36172 on `layers.33.proj.ffn_up_gate`); LoRA bytes 203.7 -> 101.8 MB (file 1.951 -> 1.850 GB).
+
+Rules: a float8_e4m3fn factor needs its scale; a factor of any other dtype must not have one and loads as before (cast to the compute dtype); a scale
+without its factor or a non-scalar scale is a `ValueError`; each factor stands alone (an fp8 `lora_a` with a bf16 `lora_b` is legal).
+`lowbit_pack.lora_to_fp8(t) -> (fp8, scale)` and `lowbit_pack.lora_from_stored(t, scale=None, dtype=float32)` convert (`None` stays `None`);
+`scripts/compact_lora.py --inp X --out Y` rewrites a whole file and reports sizes and errors. The loader keeps the fp8 factors and their scales in the
+layout params (all four are tensor fields, so `to_device` / `clone` / `copy_from` / gathered buffers carry them, and the factors take half the VRAM too)
+and applies the scales inside `dequantize_packed`, where the LoRA fold stays. An older loader would cast the fp8 factors to bf16 WITHOUT the scales (wrong
+weights, only an "unexpected keys" warning), so compact files need the current pack and a ComfyUI restart. Anything else that reads `lora_a` / `lora_b`
+of a file must go through `lora_from_stored` (`e2e_tune.py`), and anything that drops a linear's keys must drop the two scale keys (`make_hybrid.py`).
+`e2e_tune.py` writes its tuned factors as plain bf16 again: run `compact_lora.py` on the result. Tests: `scripts/test_lora_fp8.py` (CPU only).
 
 ## ComfyUI loader requirements
 

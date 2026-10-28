@@ -6,6 +6,8 @@ Per quantized linear X:
     X.weight_kind  uint8   scalar                 1 bin, 2 tern, 3 int2, 4 int4, 5 tern5, 6 int3
 kind 5 is ternary with 5 codes per byte in base 3 (byte = sum_j code_j * 3**j), zero-padded to a multiple of 5: X.weight is [out, ceil(in / 5)].
 kind 6 is int3: 8 codes per 3 bytes (code j at bit 3 * j of a little-endian 24-bit word), X.weight is [out, in * 3 // 8].
+Optional low-rank correction W = Q + B A: X.lora_a [r, in], X.lora_b [out, r], bf16, or float8_e4m3fn with a scalar fp16 X.lora_a_scale / X.lora_b_scale
+(effective factor = fp8.float() * scale). fp8 factors stay fp8 in the layout params and are converted inside dequantize_packed.
 The packed codes and scales stay resident; the bf16 weight only exists inside the linear call.
 """
 from dataclasses import dataclass
@@ -61,20 +63,25 @@ def pack_codes(codes, bits):
     return (codes.to(torch.uint8).reshape(codes.shape[0], -1, 8 // bits) << shifts).sum(-1, dtype=torch.uint8)
 
 
-def dequantize_packed(packed, scale, kind, dtype, lora_a=None, lora_b=None):
+def dequantize_packed(packed, scale, kind, dtype, lora_a=None, lora_b=None, lora_a_scale=None, lora_b_scale=None):
     bits, offset = KINDS[kind]
     out, n = packed.shape[0], scale.shape[1] * GROUP
     result = torch.empty(out, n, dtype=dtype, device=packed.device)
     rows = max(1, CHUNK // n)
     if lora_a is not None:
         lora_a = lora_a.to(device=packed.device, dtype=torch.float32)
+        if lora_a_scale is not None:
+            lora_a = lora_a * lora_a_scale.to(packed.device).float()
     for i in range(0, out, rows):
         s = scale[i:i + rows].float().unsqueeze(-1)
         codes = unpack_codes(packed[i:i + rows], bits, n).reshape(s.shape[0], n // GROUP, GROUP)
         # (code - offset) * scale is exact in fp32, so the cast to dtype is the only rounding
         w = torch.addcmul(s * -offset, codes.float(), s).reshape(-1, n)
         if lora_a is not None:  # low-rank correction folded into the weight: W = Q + B A
-            w.addmm_(lora_b[i:i + rows].to(device=packed.device, dtype=torch.float32), lora_a)
+            b = lora_b[i:i + rows].to(device=packed.device, dtype=torch.float32)
+            if lora_b_scale is not None:
+                b = b * lora_b_scale.to(packed.device).float()
+            w.addmm_(b, lora_a)
         result[i:i + rows] = w
     return result
 
@@ -83,11 +90,13 @@ class MossLowBitLayout(QuantizedLayout):
     @dataclass(frozen=True)
     class Params(BaseLayoutParams):
         kind: int = 4
-        lora_a: torch.Tensor = None  # optional bf16 low-rank correction [r, in] / [out, r]
+        lora_a: torch.Tensor = None  # optional low-rank correction [r, in] / [out, r]: bf16, or float8_e4m3fn next to its scalar fp16 scale
         lora_b: torch.Tensor = None
+        lora_a_scale: torch.Tensor = None
+        lora_b_scale: torch.Tensor = None
 
         def _tensor_fields(self):
-            return ["scale"] + [f for f in ("lora_a", "lora_b") if getattr(self, f) is not None]
+            return ["scale"] + [f for f in ("lora_a", "lora_b", "lora_a_scale", "lora_b_scale") if getattr(self, f) is not None]
 
         def _validate_tensor_fields(self):
             out, n = self.orig_shape
@@ -114,7 +123,7 @@ class MossLowBitLayout(QuantizedLayout):
 
     @classmethod
     def dequantize(cls, qdata, params):
-        return dequantize_packed(qdata, params.scale, params.kind, params.orig_dtype, params.lora_a, params.lora_b)
+        return dequantize_packed(qdata, params.scale, params.kind, params.orig_dtype, params.lora_a, params.lora_b, params.lora_a_scale, params.lora_b_scale)
 
     @classmethod
     def get_plain_tensors(cls, qtensor):
@@ -123,8 +132,9 @@ class MossLowBitLayout(QuantizedLayout):
     @classmethod
     def state_dict_tensors(cls, qdata, params):
         out = {"": qdata, "_scale": params.scale, "_kind": torch.tensor(params.kind, dtype=torch.uint8)}
-        if params.lora_a is not None:
-            out["_lora_a"], out["_lora_b"] = params.lora_a, params.lora_b
+        for name in ("lora_a", "lora_b", "lora_a_scale", "lora_b_scale"):
+            if getattr(params, name) is not None:
+                out["_" + name] = getattr(params, name)
         return out
 
     @classmethod
@@ -148,6 +158,21 @@ QUANT_ALGOS[FORMAT] = {
 }
 
 
+def load_lora_factor(key, t, scale, device, dtype):
+    """(factor, scale) as kept in the layout params: float8_e4m3fn stays fp8 next to its scalar scale, any other dtype goes to the compute dtype"""
+    if t is None:
+        if scale is not None:
+            raise ValueError(f"{key}_scale without {key}")
+        return None, None
+    if (t.dtype == torch.float8_e4m3fn) != (scale is not None):
+        raise ValueError(f"{key}: a float8_e4m3fn factor needs {key}_scale and a {t.dtype} one must not have it")
+    if scale is None:
+        return t.to(device=device, dtype=dtype), None
+    if scale.numel() != 1:
+        raise ValueError(f"{key}_scale must be a scalar, got shape {tuple(scale.shape)}")
+    return t.to(device=device), scale.reshape(()).to(device=device)
+
+
 def lowbit_ops(compute_dtype):
     """mixed precision ops whose Linear also reads moss_lowbit_v1 weights; linears without X.weight_kind load as usual"""
     base = comfy.ops.mixed_precision_ops({}, compute_dtype)
@@ -162,15 +187,17 @@ def lowbit_ops(compute_dtype):
                 scale = state_dict.pop(f"{prefix}weight_scale")
                 kind = int(state_dict.pop(f"{prefix}weight_kind"))
                 lora_a, lora_b = state_dict.pop(f"{prefix}lora_a", None), state_dict.pop(f"{prefix}lora_b", None)
+                lora_a_scale, lora_b_scale = state_dict.pop(f"{prefix}lora_a_scale", None), state_dict.pop(f"{prefix}lora_b_scale", None)
                 out, n = self._orig_shape
                 if weight.shape != (out, packed_cols(n, kind)):
                     raise ValueError(f"{prefix}weight: packed shape {tuple(weight.shape)} does not fit a [{out}, {n}] linear of kind {kind}")
                 device = self.factory_kwargs["device"]
                 if (lora_a is None) != (lora_b is None) or (lora_a is not None and (lora_a.shape[1] != n or lora_b.shape[0] != out or lora_a.shape[0] != lora_b.shape[1])):
                     raise ValueError(f"{prefix}lora_a/lora_b do not fit a [{out}, {n}] linear")
+                lora_a, lora_a_scale = load_lora_factor(f"{prefix}lora_a", lora_a, lora_a_scale, device, compute_dtype)
+                lora_b, lora_b_scale = load_lora_factor(f"{prefix}lora_b", lora_b, lora_b_scale, device, compute_dtype)
                 params = MossLowBitLayout.Params(scale=scale.to(device=device), orig_dtype=compute_dtype, orig_shape=self._orig_shape, kind=kind,
-                                                 lora_a=None if lora_a is None else lora_a.to(device=device, dtype=compute_dtype),
-                                                 lora_b=None if lora_b is None else lora_b.to(device=device, dtype=compute_dtype))
+                                                 lora_a=lora_a, lora_b=lora_b, lora_a_scale=lora_a_scale, lora_b_scale=lora_b_scale)
                 self.quant_format = FORMAT
                 self.layout_type = LAYOUT
                 self.weight = torch.nn.Parameter(QuantizedTensor(weight.to(device=device), LAYOUT, params), requires_grad=False)

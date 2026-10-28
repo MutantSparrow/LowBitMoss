@@ -1,5 +1,5 @@
 """Stage 2 (v2): end-to-end distillation of a moss_lowbit_v1 model against the bf16 teacher's outputs on captured sampling trajectories.
-Packed codes stay frozen. Trainable: group scales (log), the bf16 low-rank branches lora_a/lora_b (if the file has them), optionally the small bf16 tensors.
+Packed codes stay frozen. Trainable: group scales (log), the low-rank branches lora_a/lora_b (if the file has them; bf16 or compact fp8 are read, bf16 is written), optionally the small bf16 tensors.
 Loss per (cond, uncond) pair of one sampler step: rel-MSE(cond) + rel-MSE(uncond) + cfg_w * rel-MSE(CFG-combined velocity), each weighted by a
 noise-level weight w(t) = 1 + tw * (1 - t) (low-noise steps carry the fine detail). Writes a new moss_lowbit_v1 file."""
 import argparse
@@ -80,7 +80,7 @@ def get_parent(root, parts):
 # ---- model
 sd = load_file(args.inp)
 quant = {k[:-len(".weight_kind")] for k in sd if k.endswith(".weight_kind")}
-QUANT_SUFFIX = ("weight", "weight_scale", "weight_kind", "lora_a", "lora_b")  # a quantized linear's bias stays a plain tensor
+QUANT_SUFFIX = ("weight", "weight_scale", "weight_kind", "lora_a", "lora_b", "lora_a_scale", "lora_b_scale")  # a quantized linear's bias stays a plain tensor
 plain = {k: v for k, v in sd.items() if not (k.rsplit(".", 1)[0] in quant and k.rsplit(".", 1)[1] in QUANT_SUFFIX)}
 m = MOSSImage(dim=3072, ffn_dim=8192, num_heads=24, num_layers=42, text_dim=4096, latent_channels=128, fused_qkv=True,
               dtype=torch.bfloat16, device="cpu", operations=comfy.ops.disable_weight_init)
@@ -92,7 +92,8 @@ for name in quant:
     parent = get_parent(m, parts[:-1])
     old = parent[parts[-1]] if isinstance(parent, nn.ModuleDict) else getattr(parent, parts[-1])
     pl = PackedLinear(sd[name + ".weight"], sd[name + ".weight_scale"], int(sd[name + ".weight_kind"]), old.bias,
-                      sd.get(name + ".lora_a"), sd.get(name + ".lora_b"))
+                      L.lora_from_stored(sd.get(name + ".lora_a"), sd.get(name + ".lora_a_scale")),
+                      L.lora_from_stored(sd.get(name + ".lora_b"), sd.get(name + ".lora_b_scale")))
     if isinstance(parent, nn.ModuleDict):
         parent[parts[-1]] = pl
     else:
@@ -215,6 +216,8 @@ def export(path):
         if pl.lora_a is not None:
             out[name + ".lora_a"] = pl.lora_a.detach().to(torch.bfloat16).cpu()
             out[name + ".lora_b"] = pl.lora_b.detach().to(torch.bfloat16).cpu()
+            out.pop(name + ".lora_a_scale", None)  # the tuned factors are written as plain bf16; run compact_lora.py afterwards for the fp8 form
+            out.pop(name + ".lora_b_scale", None)
     if args.train_small:
         for n, p in m.named_parameters():
             if n in plain and p.requires_grad:
