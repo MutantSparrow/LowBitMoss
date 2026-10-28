@@ -8,6 +8,8 @@ training and evaluation code, the file format, and a ComfyUI loader node.
 1-bit attention in the middle blocks is not acceptable. This is not a finished or released quantization, no model files are included, and the numbers below come
 from one machine, 24 evaluation prompts and one seed per prompt.
 
+All sizes are decimal GB (10^9 bytes). Windows Explorer shows binary GiB (2^30 bytes), which look about 7% smaller (the 1.85 GB model appears as 1.72 in Explorer, the 1.72 GB model as 1.61, the 10.16 GB bf16 teacher as 9.47).
+
 ## Results so far
 
 Evaluation: 24 held-out prompts (`prompts/eval_prompts.json`), 768 px, 25 steps, cfg 2.5, `er_sde`, one seed per prompt; teacher CLIP score 36.17. "Judge" is a Claude
@@ -72,10 +74,79 @@ Details and the ablations: [docs/METHOD.md](docs/METHOD.md).
 Columns of the sheets: ablation and FFN study, see METHOD.md; mixG: teacher, tuned mixA, mixF_ptq, mixG_x (9 critical prompts: 6 with text, typewriter keys, 2 with counts); mixH2: teacher, mixH_x (1536 samples), mixH2_x
 (3000 samples), the six text prompts.
 
+### Aesthetic score (HPSv3)
+
+[HPSv3](https://huggingface.co/MizzenAI/HPSv3) (MizzenAI, MIT) is a human-preference reward model built on Qwen2-VL-7B-Instruct. `scripts/hps3_score.py` scores the 24 evaluation images of a model against their
+prompts (mu = raw score, higher is preferred; images are resized to HPSv3's fixed pixel budget) with a small re-implementation of the model's inference in `transformers`, and writes `eval/hps3_summary.json` and `.md`.
+"diff to teacher" is the mean of the per-prompt differences (model minus bf16 teacher), with the paired SE and the number of prompts on which the model beats the teacher.
+
+| model | size | mean mu [bootstrap 95%] | diff to teacher +- SE (wins/24) |
+|---|---|---|---|
+| bf16 teacher | 10.16 GB | 12.38 [11.76, 13.01] | |
+| mixG_tuned | 2.14 GB | 12.14 [11.36, 12.87] | -0.24 +- 0.29 (9/24) |
+| mixG_x | 2.14 GB | 12.09 [11.39, 12.74] | -0.30 +- 0.19 (7/24) |
+| mixH2_x_f8 | 1.85 GB | 11.99 [11.36, 12.59] | -0.40 +- 0.18 (5/24) |
+| mixH2_x | 1.95 GB | 11.92 [11.32, 12.49] | -0.47 +- 0.19 (5/24) |
+| mixH2_tuned | 1.95 GB | 11.90 [11.21, 12.53] | -0.49 +- 0.23 (8/24) |
+| mixH_x | 1.95 GB | 11.88 [11.19, 12.53] | -0.50 +- 0.22 (8/24) |
+| mixH_tuned | 1.95 GB | 11.70 [10.87, 12.45] | -0.69 +- 0.30 (7/24) |
+| mixA_x_tuned (mixA, text embedder quantized, + tuning) | 1.67 GB | 11.61 [10.91, 12.31] | -0.77 +- 0.28 (7/24) |
+| mixH2_xm | 1.83 GB | 11.49 [10.83, 12.11] | -0.90 +- 0.22 (5/24) |
+| mixH2_xm_f8 | 1.72 GB | 11.44 [10.76, 12.09] | -0.94 +- 0.20 (5/24) |
+| mixF_ptq | 2.42 GB | 10.86 [10.16, 11.59] | -1.53 +- 0.23 (4/24) |
+| mixI_tuned | 1.74 GB | 10.65 [9.94, 11.33] | -1.73 +- 0.31 (1/24) |
+| mixI_x | 1.74 GB | 9.66 [8.97, 10.27] | -2.73 +- 0.29 (1/24) |
+| tern_v1 (uniform ternary, no LoRA) | 1.92 GB | -8.96 [-9.44, -8.39] | -21.35 +- 0.47 (0/24) |
+
+* **What it shows.** mixG_tuned, mixG_x, mixH2_x_f8, mixH2_x, mixH2_tuned, mixH_x and mixH_tuned (mu 11.70 to 12.14) cannot be separated from each other; the 1.85 GB mixH2_x_f8 is 0.40 mu below the teacher.
+  The plain-rounding mixF_ptq (2.42 GB) is below all the mixG, mixH and mixH2 models, including the smaller ones, and mixI and tern_v1 confirm that 1-bit attention and uniform ternary are not acceptable.
+* **The int4 modulation layers cost fidelity.** mixH2_x_f8 -> mixH2_xm_f8 (and mixH2_x -> mixH2_xm) lowers the difference to the teacher from -0.40 to -0.94 (-0.47 to -0.90). A step of about 0.5 mu is at the edge of
+  the noise level (below), but it points the same way as DINOv2/SSIM/latent cosine and the judge's report of a small cool, low-contrast drift.
+* **Noise.** 24 prompts and ONE seed per prompt: seed-to-seed variation of a model is not measured at all, and the intervals only reflect which 24 prompts were drawn. The paired SE against the teacher is 0.2-0.3, so
+  differences below about 0.5 mu cannot be told apart from prompt-sampling noise (the summary file computes 0.46 mu as twice the median paired SE, 0.23, between candidate models).
+* **The scorer is validated only by plausibility checks.** The upstream repository ships no reference score values to compare with, and the upstream requirements pin `transformers` 4.45.2 while this re-implementation ran on
+  5.14.1, so its absolute mu values were never checked against the reference implementation; only the ranking inside one table is meaningful. `scripts/hps3_checks.py` runs the plausibility checks (the same image twice,
+  wrong prompt, blurred / grey / noise images, plain sequential position ids against transformers' 3D mrope ids).
+  In the original run the repeated score was identical, wrong prompts and degraded images scored lower, and the 3D-mrope variant gave different (not identical) scores, so the position ids matter; the sequential ids of the reference code are used.
+
+Setup. The scripts download nothing: put the 16.6 GB checkpoint, the small Qwen2-VL-7B-Instruct config/tokenizer files (no weights) and a clone of the upstream source (its prompt text and two example images are read from it)
+under `$LOWBITMOSS_AUX` (default `$LOWBITMOSS_HOME/models_aux`; set the variable to keep the 16.6 GB on another disk):
+
+```python
+from huggingface_hub import hf_hub_download
+AUX = "models_aux"  # your $LOWBITMOSS_AUX
+hf_hub_download("MizzenAI/HPSv3", "HPSv3.safetensors", local_dir=f"{AUX}/HPSv3")
+for name in ["chat_template.json", "config.json", "generation_config.json", "merges.txt",
+             "preprocessor_config.json", "tokenizer.json", "tokenizer_config.json", "vocab.json"]:
+    hf_hub_download("Qwen/Qwen2-VL-7B-Instruct", name, local_dir=f"{AUX}/qwen2vl_proc")
+```
+
+and `git clone https://github.com/MizzenAI/HPSv3.git "$LOWBITMOSS_AUX/hpsv3_src"`. Then `$PY -I hps3_score.py --tags teacher_bf16,mixG_x,mixG_tuned` (GPU; scores every tag whose 24 images are in `eval/<tag>/`,
+caches per image in `eval/<tag>/hps3.json`; `--examples` also scores the two upstream example images; `COMFYUI_DIR` is read for the size of the teacher file).
+The 16.6 GB checkpoint (15.45 GiB) leaves no headroom for activations on a 16 GB card, so the model runs with `--gpu_gib 11` (default): about 11 GiB on the GPU, the remaining decoder layers in pinned CPU RAM, streamed in by accelerate.
+
+### Category winners
+
+`scripts/category_winners.py` merges `eval/<model>/metrics.json` (CLIP, DINOv2, SSIM, latent cosine against the teacher), `eval/hps3_summary.json` and the judge scores into `eval/category_winners.md`
+(CPU only, standard library). The judge scores are a table typed into the script from the judge reports (a Claude model instance per model, +-0.2 noise per average); the reports themselves are not part of this repository.
+It covers the 12 models of the reported runs; edit `TAGS` and the judge table for your own. `mixH2_x_f8` was not judged separately: its row shows the scores of `mixH2_x`, whose metrics it matches within fp8 rounding of the LoRA factors.
+
+| category | winner | tied with |
+|---|---|---|
+| best overall (judge would-accept) | mixG_x (A 4.29) | mixG_tuned, mixH_tuned, mixH2_x(_f8), mixH2_tuned, mixH2_xm_f8 (A 4.10-4.21) |
+| best text rendering | mixG_tuned (T 4.79, 6/6 letter-exact) | none (next best T 4.43) |
+| best aesthetics (HPSv3) | mixG_tuned (mu 12.14, teacher 12.38) | mixG_x, mixH_x, mixH_tuned, mixH2_x, mixH2_x_f8, mixH2_tuned |
+| closest to the teacher | mixG_tuned (DINOv2 0.901, SSIM 0.666, latent cos 0.750) | none by DINOv2 (next 0.884) |
+| smallest acceptable (A >= 4.0) | mixH2_xm_f8 (1.72 GB, A 4.15, HPSv3 -0.94 vs teacher) | |
+| best size/quality value (A >= 4.0 and HPSv3 within 0.5 of the teacher) | mixH2_x_f8 (1.85 GB, HPSv3 -0.40) | |
+
+Read the table with the caveats above: 24 prompts, one seed each, one judge instance per model, HPSv3 paired SE 0.2-0.3. "Best overall" and "best aesthetics" are ties inside the noise, so their nominal winners are not a ranking.
+The categories where the models really differ are exact text and closeness to the teacher (`mixG_tuned`) and size (`mixH2_x_f8` at 1.85 GB, `mixH2_xm_f8` at 1.72 GB, which pays for it with the int4 modulation layers that HPSv3 also marks down).
+
 ## Pipeline
 
 Run from `scripts/` with the ComfyUI venv Python (`$PY`, always `-I`). `scripts/example_pipeline.sh` runs all of this for the mixG recipe and lists the mixH2 commands as an optional last step.
-Work files go to `$LOWBITMOSS_HOME/{data,out,eval,logs}` (default: the repository root, git-ignored).
+Work files go to `$LOWBITMOSS_HOME/{data,out,eval,logs}` (default: the repository root, git-ignored); the HPSv3 files to `$LOWBITMOSS_AUX` (default `$LOWBITMOSS_HOME/models_aux`).
 
 1. Capture teacher trajectories as calibration data (160 prompts + 80 text-rich prompts, 512 px):
    `$PY -I capture.py --res 512 --n 160 --keep 8` and
@@ -99,6 +170,8 @@ Work files go to `$LOWBITMOSS_HOME/{data,out,eval,logs}` (default: the repositor
 11. Optional: store the LoRA factors as fp8 (-102 MB on mixH2_x) and see where the bytes go:
     `$PY -I compact_lora.py --inp ../out/mixH2_x.safetensors --out ../out/mixH2_x_fp8lora.safetensors`, `$PY -I size_report.py ../out/mixH2_x_fp8lora.safetensors`
     (`e2e_tune.py` reads compact files but writes plain bf16 LoRA again, so run `compact_lora.py` last; compact files need the current loader node and a ComfyUI restart)
+12. Optional: HPSv3 aesthetic score and the category table (setup under "Aesthetic score (HPSv3)"): `$PY -I hps3_score.py --tags teacher_bf16,mixG_x,mixG_tuned` (GPU, 16.6 GB checkpoint),
+    `$PY -I category_winners.py` (CPU; reads the 12 models of the reported runs)
 
 Ablation helper (`make_hybrid.py`): restore selected linears of a file to bf16 (`--restore ffn`, `attn`, `ffn:LO-HI`, `attn:LO-HI`, `blocks:LO-HI`) or requantize them by plain rounding (`--ptq int4`), to find which layers carry which quality.
 Server-based generation (`gen_eval.py`, same workflow through a running ComfyUI) and a header dump (`inventory.py <file>`) are also included.
@@ -116,6 +189,7 @@ a 24-image evaluation (about 30 s per image) roughly 12 minutes. Data and checkp
 * A ComfyUI checkout at v0.42.5 (developed against it; the CPU tests also pass on v0.43.0) with its venv: torch 2.12.1+cu130 and the packages ComfyUI needs
   (including `comfy-kitchen`, `safetensors`, `numpy`, `pillow`). Nothing is pip-installed by this repository.
 * `transformers` and `scipy` for `metrics.py` (CLIP and DINOv2 are downloaded from the Hugging Face hub on first use).
+* Only for `hps3_score.py`: `accelerate` and the HPSv3 files described under "Aesthetic score (HPSv3)" (16.6 GB checkpoint). `category_winners.py` needs only the Python standard library.
 * The MOSS-Image files in that ComfyUI: `models/diffusion_models/moss_image_sft_bf16.safetensors` (teacher), `models/text_encoders/qwen3.5_9b_bf16.safetensors`, `models/vae/flux2-vae.safetensors`.
 * Environment: `COMFYUI_DIR` (required; the folder containing `main.py`) and optionally `LOWBITMOSS_HOME` (work directory, default the repository root).
   Under Git Bash on Windows give paths in the `C:/...` form.
@@ -155,6 +229,7 @@ Tests: see [docs/TESTING.md](docs/TESTING.md) (four CPU-only scripts pass; the r
 * No fused low-bit kernels: the loader dequantizes per linear call, so the gain is memory, not speed (speed was not benchmarked here).
 * The attention allocations from the sensitivity map (mostly 1-2 bits) and a 2-bit FFN trained with QAT and a rank-64 LoRA hold up; forcing 1-bit qkv/o into every middle block (mixI) does not, and neither does plain-rounding below 4 bits in the FFN.
 * Calibration at 512 px, evaluation at 768 px; other resolutions are not evaluated.
+* The HPSv3 numbers come from a re-implementation validated only by plausibility checks (see "Aesthetic score (HPSv3)"). In this repository form `hps3_score.py` was syntax-checked and its summary code re-run on the saved per-image scores; loading the model and scoring images were not re-run.
 * Developed and run on Windows; shell and path handling use `os.path.join` and should work on Linux, but that has not been tried. `example_pipeline.sh` was assembled from the run scripts and only syntax-checked.
 * Depends on ComfyUI internals (`comfy.quant_ops`, `comfy.ldm.moss_image`), developed against v0.42.5.
 
@@ -163,7 +238,7 @@ Tests: see [docs/TESTING.md](docs/TESTING.md) (four CPU-only scripts pass; the r
 * The **file format** follows the PrismML Bonsai-Image whitepaper (group-wise low-bit weights with fp16 group scales, small sensitive layers in 16 bit). It is cited as a format
   reference only: the whitepaper does not disclose its training recipe, so this project's block-wise distillation QAT is not a reproduction of Bonsai.
 * [ComfyUI](https://github.com/Comfy-Org/ComfyUI) (model code, loaders, quantized-tensor layout API) and **MOSS-Image** by OpenMOSS-Team (the model being quantized; Qwen3.5 text encoder and FLUX.2 VAE are used as shipped for it).
-* Metrics use OpenAI CLIP ViT-B/16 and Meta DINOv2-small through `transformers`.
+* Metrics use OpenAI CLIP ViT-B/16 and Meta DINOv2-small through `transformers`. The aesthetic score uses the [HPSv3](https://github.com/MizzenAI/HPSv3) reward model (MizzenAI, MIT) on Qwen2-VL-7B-Instruct; the checkpoint and the Qwen files are downloaded by the user and not included here.
 * This work was done with assistance from Claude Code (Anthropic).
 
 ## License

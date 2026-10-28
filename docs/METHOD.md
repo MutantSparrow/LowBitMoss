@@ -2,7 +2,7 @@
 
 Condensed notes of the research log behind this repository. All numbers are from one machine (RTX 4080 16 GB), one seed per prompt and a
 24-prompt held-out evaluation set (`prompts/eval_prompts.json`, 768 px), so differences of a few percent are noise. The numbers come from the project's `NOTES.md`,
-the judge reports `eval/judge_*.md` and the per-model `eval/<model>/metrics.json`; those are work-directory files and are not part of this repository.
+the judge reports `eval/judge_*.md`, the per-model `eval/<model>/metrics.json`, `eval/hps3_summary.md` and `eval/category_winners.md`; those are work-directory files and are not part of this repository.
 A longer write-up is planned.
 
 ## Goal and setting
@@ -10,6 +10,8 @@ A longer write-up is planned.
 Make the MOSS-Image SFT diffusion transformer (5.08B parameters, 42 blocks, bf16 file 10.2 GB) much smaller while keeping the images, including
 rendered text and object counts, close to the bf16 teacher. Sampling is the official one: 25 steps, cfg 2.5, `er_sde`, `simple` scheduler,
 768 px for evaluation. The teacher needs classifier-free guidance (two model calls per step), which matters below.
+
+All sizes are decimal GB (10^9 bytes). Windows Explorer shows binary GiB (2^30 bytes), which look about 7% smaller (the 1.85 GB model appears as 1.72 in Explorer, the 1.72 GB model as 1.61, the 10.16 GB bf16 teacher as 9.47).
 
 The PrismML Bonsai-Image whitepaper describes a *format* (group-wise symmetric binary/ternary weights with fp16 group scales, small sensitive layers
 kept in 16 bit) but not how its models were trained. The format is borrowed (`SPEC.md`); the training recipe here is our own and is not a reproduction.
@@ -132,6 +134,31 @@ Per-image verdicts of the judge (better / same / worse):
   DINOv2 0.877 -> 0.856, SSIM 0.640 -> 0.594, latent cosine 0.720 -> 0.659 (mixH2_x -> mixH2_xm). The judge on mixH2_xm_f8 (1.72 GB) still finds it acceptable: F 4.25, T 4.00, C 3.79, Q 4.21, A 4.15 against 4.33 / 4.00 / 3.43 / 4.27 / 4.21
   for mixH2_x (all inside the noise band except C, whose +0.36 comes from three image-specific changes), 21 of 24 images with A >= 4, 5/6 text prompts acceptable. What it measured is a small consistent drift: about 0.025 cooler (R-B)
   and about 8% less luminance contrast than the teacher on average, twice the loss of mixH2_x, scene dependent (grey-green typewriter keys, muted lanterns, paler bright scenes); no banding, blocking or noise.
+
+## Aesthetic score (HPSv3) and category winners
+
+CLIP score, DINOv2 and SSIM compare with the teacher or the prompt, none of them measures how pleasing an image is, so the 24 evaluation images of each model are also scored with HPSv3 (MizzenAI/HPSv3, MIT).
+The results are in the README ("Aesthetic score (HPSv3)", "Category winners"); this is how they are made.
+
+* **The scorer** (`hps3_score.py`, own minimal inference code, not the upstream package). The checkpoint is Qwen2-VL-7B-Instruct plus a new `<|Reward|>` token and a reward head (3584-1024-16-2). The score is the head's output pair
+  `[mu, log_sigma]` at the `<|Reward|>` position of the last hidden state (after the final norm); the tables use mu only. The image is resized to a fixed pixel budget (256 x 28 x 28), the text is the upstream
+  evaluation instruction with the prompt filled in, parsed with `ast` from the upstream collator source (never imported), and, like the upstream code, the language model gets plain sequential position ids instead of the 3D mrope index.
+  Files and download: README, "Aesthetic score (HPSv3)"; they live under `$LOWBITMOSS_AUX` (default `$LOWBITMOSS_HOME/models_aux`).
+* **Layer offload.** The 16.6 GB checkpoint (15.45 GiB) leaves no headroom for activations on a 16 GB card. `infer_auto_device_map` with `max_memory={0: "11GiB", "cpu": "90GiB"}` (`--gpu_gib`, default 11) assigns whole `Qwen2VLDecoderLayer` /
+  `Qwen2VLVisionBlock` modules: about 11 GiB of the model on the GPU, the remaining decoder layers in pinned CPU RAM, which accelerate's `dispatch_model` streams to the GPU during each forward pass. The checkpoint is read tensor by tensor from the
+  safetensors file and each tensor goes straight to its target device, so it is never held in RAM as a whole. Images are scored one at a time and cached per image in `eval/<tag>/hps3.json`; run it while no other job holds the GPU (`--wait_gpu` polls `nvidia-smi` until under 2000 MiB are in use).
+* **Statistics** (`summarize` in `hps3_score.py`): mean mu over the 24 prompts with a bootstrap 95% interval over prompts, and the paired difference to the teacher (mean of the per-prompt differences, its SE, number of prompts won).
+  The sd of mu across prompts is 1.34-2.03 and the bootstrap half-width of a mean 0.52-0.79. The paired SE between two candidate models (teacher and tern_v1 excluded) is 0.06-0.34, median 0.23, so a difference below about 0.46 mu (twice the median) is within
+  prompt-sampling noise; with ONE seed per prompt, seed-to-seed variation is not measured at all.
+* **Validation.** The upstream repository ships no reference scores, and its requirements pin `transformers` 4.45.2 while this implementation ran on 5.14.1, so the absolute values were not checked against the reference implementation. `hps3_checks.py` runs plausibility checks
+  only: determinism, wrong prompts and degraded images (blurred, grey, noise) scoring lower, and the sequential position ids against the 3D mrope ids (the two give different scores; the sequential ids of the reference code are used).
+* **Category winners** (`category_winners.py`, CPU only): the rules are in the script. Best overall = highest judge would-accept A (ties: within 0.2); best text = highest judge T; best aesthetics = highest HPSv3 mean mu (ties: within 0.5 mu); closest to the teacher = highest DINOv2 cosine;
+  smallest acceptable = smallest file with A >= 4.0; best value = smallest file with A >= 4.0 and an HPSv3 difference to the teacher of at least -0.5. The judge scores are a table typed into the script from the judge reports (a Claude model instance per model, +-0.2 noise per average);
+  `mixH2_x_f8` is not judged separately and takes the scores of `mixH2_x` (same model within fp8 rounding of the LoRA factors).
+
+What the two tables add: the mixG, mixH and mixH2 models lie together at mu 11.70 to 12.14 against 12.38 for the teacher (plain-rounding mixF_ptq 10.86, mixI 9.66 and 10.65), and that spread is mostly inside the noise,
+so "best overall" and "best aesthetics" are ties. The clear differences are exact text and closeness to the teacher (`mixG_tuned`) and size (`mixH2_x_f8` 1.85 GB, `mixH2_xm_f8` 1.72 GB). HPSv3 agrees in direction that the int4 modulation layers cost fidelity:
+the difference to the teacher goes from -0.40 (mixH2_x_f8) to -0.94 (mixH2_xm_f8), a step of about 0.5 mu, at the edge of the noise level.
 
 ## Key finding: MSE sensitivity is not text sensitivity
 
