@@ -1,0 +1,11 @@
+tag,label,size_gb,conditioning_token_cosine_x100,image_dino_x100_vs_bf16_encoder_images,hpsv3_with_tmixG_x
+tmixG_x_1024,bf16 encoder (reference),19.31,100.00,100.00,11.09
+enc_int8_convrot,Comfy int8 convrot,9.75,99.96,99.24,10.95
+enc_w4a8_gptq,Comfy W4A8 GPTQ,7.34,99.44,98.15,10.99
+enc_gptq_pruned,Comfy GPTQ pruned (recommended),4.93,99.44,98.00,11.02
+enc_i4e8,own int4 + int8 embedding,4.6,93.94,92.83,11.09
+enc_i4,own int4,5.61,93.94,93.20,11.03
+enc_m3,own mlp-int3,5.01,84.32,88.80,10.64
+enc_a3,own attn-int3,4.54,90.18,92.37,11.02
+enc_l3,own lin-attn-int3,4.4,62.85,80.76,9.77
+enc_i3,own all-int3,4.75,42.46,44.54,4.86

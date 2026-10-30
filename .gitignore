@@ -1,19 +1,13 @@
 __pycache__/
-*.pyc
-
-# model files and captured tensors
-*.safetensors
-*.pt
-*.latent
-
-# work directories (LOWBITMOSS_HOME defaults to the repository root)
+*.py[cod]
+.venv/
+.env
+.env.*
 data/
 out/
 eval/
 logs/
 models_aux/
-*.log
-
-# images, except the contact sheets shown in the docs
-*.png
-!docs/images/*.png
+*.safetensors
+*.pt
+*.latent

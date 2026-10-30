@@ -1,7 +1,8 @@
 """Stage 2 (v2): end-to-end distillation of a moss_lowbit_v1 model against the bf16 teacher's outputs on captured sampling trajectories.
 Packed codes stay frozen. Trainable: group scales (log), the low-rank branches lora_a/lora_b (if the file has them; bf16 or compact fp8 are read, bf16 is written), optionally the small bf16 tensors.
 Loss per (cond, uncond) pair of one sampler step: rel-MSE(cond) + rel-MSE(uncond) + cfg_w * rel-MSE(CFG-combined velocity), each weighted by a
-noise-level weight w(t) = 1 + tw * (1 - t) (low-noise steps carry the fine detail). Writes a new moss_lowbit_v1 file."""
+noise-level weight w(t) = 1 + tw * (1 - t) (low-noise steps carry the fine detail). Writes a new moss_lowbit_v1 file.
+--traj is the trajectory-level variant for the 4-step distilled model; it is kept as a documented NEGATIVE result (final-latent MSE over trajectories blurs the images, see the README)."""
 import argparse
 import glob
 import math
@@ -40,6 +41,8 @@ ap.add_argument("--max_pairs", type=int, default=0)
 ap.add_argument("--text_boost", type=int, default=1, help="oversample calibration prompts that contain quoted text by this factor")
 ap.add_argument("--eval_every", type=int, default=300)
 ap.add_argument("--seed", type=int, default=0)
+ap.add_argument("--traj", action="store_true", help="NEGATIVE RESULT, kept for reference: train on whole 4-step sampler trajectories (files of 4 captured steps, CFG 1): the student runs the euler steps itself and is matched to the teacher states, final latent included (blurs the images); --mb is then trajectories per step")
+ap.add_argument("--traj_w", type=float, default=0.25, help="weight of the intermediate states in the trajectory loss (the final latent has weight 1)")
 args = ap.parse_args()
 random.seed(args.seed)
 torch.manual_seed(args.seed)
@@ -120,9 +123,10 @@ print("trainable: %d scale tensors (%.1fM), %d lora tensors (%.1fM)%s" % (
 # ---- data: samples, teacher targets, (cond, uncond) pairs of the same sampler step
 files = sorted(glob.glob(os.path.join(args.data, "p*.pt")))
 targets = torch.load(args.targets)
-samples, has_text, is_text_file = [], [], []
+samples, has_text, is_text_file, starts = [], [], [], []
 for f in files:
     d = torch.load(f)
+    starts.append(len(samples))
     samples += d["samples"]
     is_text_file += [os.path.basename(f).startswith("p-t")] * len(d["samples"])
     has_text += [bool(re.search(r'"[^"]{2,}"', d["prompt"]))] * len(d["samples"])  # prompts that ask for rendered text
@@ -130,6 +134,9 @@ assert len(samples) == len(targets), (len(samples), len(targets))
 n_hold_files = max(2, len(files) // 20)
 n_hold = sum(len(torch.load(f)["samples"]) for f in files[-n_hold_files:])
 n_train_end = len(samples) - n_hold
+if args.traj:
+    assert all(b - a == 4 for a, b in zip(starts, starts[1:] + [len(samples)])), "--traj needs files of exactly 4 captured sampler steps"
+    trajs_train, trajs_hold = starts[:-n_hold_files], starts[-n_hold_files:]  # a trajectory is the index of its first sample
 
 
 def make_pairs(lo, hi):
@@ -161,17 +168,47 @@ if args.text_boost > 1:
 print("pairs: train %d, holdout %d (%d fully paired)" % (len(pairs_train), len(pairs_hold), sum(1 for p in pairs_hold if p[1] is not None)), flush=True)
 
 
-def forward_sample(i, train):
-    s = samples[i]
-    x, t, ctx = s["x"].unsqueeze(0).to(dev), s["t"].reshape(1).to(dev), s["ctx"].unsqueeze(0).to(dev)
-    tok, mod, pe, head, hw = prefix(m, x, t, ctx)
+def forward_state(x, t, ctx, train):
+    tok, mod, pe, head, hw = prefix(m, x.unsqueeze(0).to(dev, torch.bfloat16), t.reshape(1).to(dev), ctx.unsqueeze(0).to(dev))
     for blk in m.layers:
         tok = checkpoint(blk, tok, mod, pe, use_reentrant=False) if train else blk(tok, mod, pe)
     return suffix(m, tok, head, hw)[0].float()
 
 
+def forward_sample(i, train):
+    s = samples[i]
+    return forward_state(s["x"], s["t"], s["ctx"], train)
+
+
 def rel(o, y):
     return ((o - y) ** 2).sum() / (y ** 2).sum()
+
+
+def rollout(a, train):
+    """the student's euler steps from the captured noise (samples a..a+3 are the 4 steps of one prompt), with the teacher's state after each step.
+    The final teacher latent is its last captured state advanced by its stored output."""
+    s = samples[a:a + 4]
+    ts = [float(v["t"]) for v in s] + [0.0]
+    x, outs, refs = s[0]["x"].to(dev).float(), [], []
+    for k in range(4):
+        x = x + (ts[k + 1] - ts[k]) * forward_state(x, s[k]["t"], s[k]["ctx"], train)
+        outs.append(x)
+        refs.append((s[k + 1]["x"].to(dev).float()) if k < 3 else s[3]["x"].to(dev).float() - ts[3] * targets[a + 3].to(dev).float())
+    return outs, refs
+
+
+def traj_loss(a):
+    outs, refs = rollout(a, True)
+    return rel(outs[-1], refs[-1]) + args.traj_w * sum(rel(o, r) for o, r in zip(outs[:-1], refs[:-1]))
+
+
+def evaluate_traj():
+    tot = 0.0
+    with torch.no_grad():
+        for a in trajs_hold:
+            outs, refs = rollout(a, False)
+            tot += rel(outs[-1], refs[-1]).item()
+    return tot / len(trajs_hold)
 
 
 def evaluate(report=False):
@@ -200,10 +237,14 @@ def evaluate(report=False):
 
 base = evaluate(report=True)
 print("holdout rel mse before: %.5f   cfg-combined: %.5f" % base, flush=True)
+if args.traj:
+    base_traj = evaluate_traj()
+    print("holdout final-latent rel mse of the student rollout before: %.5f" % base_traj, flush=True)
 if args.epochs == 0:
     sys.exit(0)
 assert args.out, "--out is required for training"
-steps = int(args.epochs * len(pairs_train) / args.mb)
+pool = trajs_train if args.traj else pairs_train
+steps = int(args.epochs * len(pool) / args.mb)
 opt = torch.optim.AdamW(groups, weight_decay=0.0, betas=(0.9, 0.99))
 sched = torch.optim.lr_scheduler.LambdaLR(opt, lambda s: min(1.0, (s + 1) / 20) * (0.5 * (1 + math.cos(math.pi * s / max(1, steps))) * 0.98 + 0.02))
 
@@ -226,23 +267,27 @@ def export(path):
 
 
 order, t0, run, best = [], time.time(), 0.0, (base[0], None)
-print("steps: %d (%d pairs per step)" % (steps, args.mb), flush=True)
+print("steps: %d (%d %s per step)" % (steps, args.mb, "trajectories" if args.traj else "pairs"), flush=True)
 for step in range(steps):
     if len(order) < args.mb:
-        order = pairs_train[:]
+        order = pool[:]
         random.shuffle(order)
     batch, order = order[:args.mb], order[args.mb:]
     loss_acc = 0.0
-    for ic, iu in batch:
-        w = 1.0 + args.tw * (1.0 - float(samples[ic]["t"]))
-        oc, yc = forward_sample(ic, True), targets[ic].to(dev).float()
-        loss = rel(oc, yc)
-        if iu is not None:
-            ou, yu = forward_sample(iu, True), targets[iu].to(dev).float()
-            loss = loss + rel(ou, yu)
-            if args.cfg_w:
-                loss = loss + args.cfg_w * rel(ou + args.cfg * (oc - ou), yu + args.cfg * (yc - yu))
-        loss = loss * w / (1.0 + args.tw * 0.5) / len(batch)
+    for item in batch:
+        if args.traj:
+            loss = traj_loss(item) / len(batch)
+        else:
+            ic, iu = item
+            w = 1.0 + args.tw * (1.0 - float(samples[ic]["t"]))
+            oc, yc = forward_sample(ic, True), targets[ic].to(dev).float()
+            loss = rel(oc, yc)
+            if iu is not None:
+                ou, yu = forward_sample(iu, True), targets[iu].to(dev).float()
+                loss = loss + rel(ou, yu)
+                if args.cfg_w:
+                    loss = loss + args.cfg_w * rel(ou + args.cfg * (oc - ou), yu + args.cfg * (yc - yu))
+            loss = loss * w / (1.0 + args.tw * 0.5) / len(batch)
         loss.backward()
         loss_acc += loss.item()
     torch.nn.utils.clip_grad_norm_(scale_params + lora_params, 1.0)
@@ -256,7 +301,11 @@ for step in range(steps):
     if (step + 1) % args.eval_every == 0 and step + 1 < steps:
         ev = evaluate()
         print("  holdout rel mse %.5f   cfg-combined: %.5f" % ev, flush=True)
+        if args.traj:
+            print("  holdout final-latent rel mse of the student rollout: %.5f" % evaluate_traj(), flush=True)
 final = evaluate(report=True)
 print("holdout rel mse after: %.5f   cfg-combined: %.5f   (before %.5f / %.5f)" % (final + base), flush=True)
+if args.traj:
+    print("holdout final-latent rel mse of the student rollout after: %.5f   (before %.5f)" % (evaluate_traj(), base_traj), flush=True)
 export(args.out)
 print("wrote", args.out, "%.3f GB" % (os.path.getsize(args.out) / 1e9))

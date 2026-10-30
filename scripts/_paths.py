@@ -1,8 +1,9 @@
 """Locations shared by all scripts.
 
 LOWBITMOSS_HOME  work directory holding data/ out/ eval/ logs/ (default: the repository root)
-LOWBITMOSS_AUX   folder with the extra model files of hps3_score.py (default: $LOWBITMOSS_HOME/models_aux)
+LOWBITMOSS_AUX   folder with the extra model files: HPSv3 for hps3_score.py, turbo4/ for the distilled-model scripts (default: $LOWBITMOSS_HOME/models_aux)
 COMFYUI_DIR     ComfyUI checkout (the folder with main.py); only needed by scripts that import comfy, read it through comfy_dir()
+MOSS_TEACHER    bf16 checkpoint to use as the teacher instead of ComfyUI's moss_image_sft_bf16.safetensors, e.g. the turbo-merged one (read by teacher_path())
 """
 import os
 
@@ -22,4 +23,6 @@ def comfy_dir():
 
 
 def teacher_path():
+    if os.environ.get("MOSS_TEACHER"):
+        return os.path.abspath(os.environ["MOSS_TEACHER"])
     return os.path.join(comfy_dir(), "models", "diffusion_models", "moss_image_sft_bf16.safetensors")

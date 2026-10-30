@@ -1,0 +1,8 @@
+LowBitMoss
+Copyright 2026 LowBitMoss contributors
+
+Licensed under the Apache License, Version 2.0.
+Includes modified model artifacts derived from OpenMOSS MOSS-Image-SFT,
+Comfy-Org MOSS-Image packaging, Qwen3.5-9B, the akhaliq four-step adapter,
+and Black Forest Labs FLUX.2-small-decoder.
+See THIRD_PARTY_NOTICES.md for source links, upstream notices, and modifications.

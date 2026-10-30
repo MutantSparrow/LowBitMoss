@@ -1,0 +1,36 @@
+[
+  {
+    "source": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
+    "license": "apache-2.0",
+    "revision": "f972bd4b4b9e3852133cc5da954d87bc32cd8fb9",
+    "preserved_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "source": "https://huggingface.co/Comfy-Org/MOSS-Image",
+    "license": "apache-2.0",
+    "revision": "530a4c94f92c35ef6818b1b035a983fe9dcf5f54",
+    "preserved_files": []
+  },
+  {
+    "source": "https://huggingface.co/Qwen/Qwen3.5-9B",
+    "license": "apache-2.0",
+    "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "preserved_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "source": "https://huggingface.co/akhaliq/MOSS-Image-SFT-4-steps",
+    "license": "apache-2.0",
+    "revision": "2ded95c37a029360245926fe72e475e30039bbfb",
+    "preserved_files": []
+  },
+  {
+    "source": "https://huggingface.co/black-forest-labs/FLUX.2-small-decoder",
+    "license": "apache-2.0",
+    "revision": "a3efc24f613ef42d9428af62fdbd6f5fd8856c4a",
+    "preserved_files": []
+  }
+]

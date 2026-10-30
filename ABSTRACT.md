@@ -1,0 +1,9 @@
+# LowBitMoss: abstract
+
+We compress the 5.08B-parameter MOSS-Image SFT diffusion transformer using block-wise quantization-aware distillation on one 16 GB GPU, captured teacher trajectories, learnable group scales, student-stream inputs, and data-aware low-rank corrections. Mixed-precision DiT files occupy 1.72-2.14 GB versus 10.16 GB in bf16. On 24 prompts with one seed each at 768 px, the 2.14 GB mixG_tuned model has model-judge acceptance 4.21/5 and all six text prompts letter-exact. It renders five balloons correctly but misses the six-fruit count, as does the teacher. Uniform binary and ternary recipes fail, and the combined attention-and-FFN 1-bit mixI allocation fails. Larger-data training also uses more optimizer steps, so a data-only benefit is not established.
+
+We apply the recipes to a 4-step distilled teacher. The distilled teacher is harder to quantize than the 25-step teacher in our setting. The 2.14 GB student has acceptance 4.06/5 and 18/24 accepted images with the bf16 encoder and full VAE; it misses the post hoc 20/24 threshold. A 2.93 GB folded-LoRA model reaches 4.27/5 and 23/24 with those same components. Reusing a pruned existing GPTQ encoder and small decoder yields a measured 7.18 GB small package and a proposed 7.97 GB quality package; neither has a complete-package judge pass, and the latter combination remains unmeasured. These are file sizes, not peak memory. Local HPSv3-based scoring lacks official numerical-parity validation. Results are exploratory; separate judge instances, one training run per recipe, and confounded comparisons limit generalization. We report implementation failures and negative results alongside the working configurations.
+
+[Whitepaper](paper/whitepaper.pdf) · [Code](https://github.com/MutantSparrow/LowBitMoss) · [Models and data](https://huggingface.co/MutantSparrow/LowBitMoss)
+
+Licensed under Apache License 2.0.

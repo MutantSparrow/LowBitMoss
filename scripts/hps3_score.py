@@ -1,4 +1,4 @@
-"""HPSv3 (MizzenAI/HPSv3, MIT) human-preference score for the eval images, own minimal inference code.
+"""HPSv3 (MizzenAI/HPSv3, MIT) local preference score for the eval images; official numerical parity is unvalidated.
 
 The checkpoint is Qwen2-VL-7B-Instruct (not 2.5) + new token <|Reward|> + rm_head MLP (3584-1024-16-2). Output = [mu, log_sigma]
 of the head at the <|Reward|> position of the last hidden state (after the final norm). Like the reference code, the LLM gets plain
@@ -232,12 +232,12 @@ def summarize(tags, eval_dir, prompts, sizes, out_json):
     sd = np.array([s["sd_mu"] for s in summary.values()])
     ci_half = np.array([(s["ci95"][1] - s["ci95"][0]) / 2 for s in summary.values()])
     notes = [
-        "", "mu = HPSv3 raw score (higher = preferred), mean over 24 prompts, one seed per prompt, images resized to the HPSv3 pixel budget (256 x 28 x 28; 420x420 for a 768px square image).",
+        "", "mu = local HPSv3-based raw score (official numerical parity unvalidated) (higher = preferred), mean over 24 prompts, one seed per prompt, images resized to the HPSv3 pixel budget (256 x 28 x 28; 420x420 for a 768px square image).",
         "diff to teacher = mean of (student mu - teacher mu) per prompt, SE = sd of the 24 paired differences / sqrt(24); wins = prompts where student mu > teacher mu.",
         "", "Noise: only 24 prompts and ONE seed per prompt, so seed-to-seed variation of a model is not measured at all and the intervals only reflect which 24 prompts were drawn.",
         f"- sd of mu across prompts is {sd.min():.2f}-{sd.max():.2f}; bootstrap 95% half-width of a mean is {ci_half.min():.2f}-{ci_half.max():.2f}.",
         f"- paired SE between two candidate models (excluding teacher and tern_v1) is {min(cand):.2f}-{max(cand):.2f} (median {float(np.median(cand)):.2f});"
-        f" a difference below about 2 x that ({2 * float(np.median(cand)):.2f} mu) cannot be told apart from prompt-sampling noise.",
+        " Use the interval of each paired contrast; a median SE is not a universal significance cutoff. No equivalence margin was prespecified.",
     ]
     return summary, "\n".join(lines + notes)
 

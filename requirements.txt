@@ -1,0 +1,9 @@
+# Install the CUDA-compatible torch build and ComfyUI dependencies separately.
+safetensors>=0.4
+numpy
+Pillow
+scipy
+transformers
+timm
+open_clip_torch
+huggingface_hub

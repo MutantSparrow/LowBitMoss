@@ -1,0 +1,25 @@
+tag,label,family,size_gb,dino_likeness_x100,hpsv3_local_mean,hpsv3_delta_to_teacher,hpsv3_paired_se,hpsv3_ci95_low,hpsv3_ci95_high
+teacher_bf16,bf16 teacher,bf16 teacher (25 steps),10.16,100.00,12.384582,0.000000,0.000000,0.000000,0.000000
+turbo4_1024,distilled bf16,distilled bf16 teacher (4 steps),10.16,82.38,11.926482,-0.458099,0.225292,-0.924151,0.007953
+mixG_tuned,mixG_tuned,"non-distilled, quantized",2.14,90.07,12.139749,-0.244833,0.289227,-0.843145,0.353480
+mixG_x,mixG_x,"non-distilled, quantized",2.14,88.39,12.087103,-0.297479,0.188380,-0.687173,0.092215
+mixH_x,mixH_x,"non-distilled, quantized",1.95,86.71,11.880460,-0.504122,0.216268,-0.951506,-0.056738
+mixH_tuned,mixH_tuned,"non-distilled, quantized",1.95,85.97,11.699441,-0.685140,0.297278,-1.300107,-0.070174
+mixH2_x,mixH2_x,"non-distilled, quantized",1.95,87.70,11.917078,-0.467503,0.190156,-0.860872,-0.074135
+mixH2_tuned,mixH2_tuned,"non-distilled, quantized",1.95,86.36,11.895684,-0.488898,0.228970,-0.962559,-0.015237
+mixH2_x_f8,mixH2_x_f8,"non-distilled, quantized",1.85,87.67,11.989254,-0.395328,0.180223,-0.768147,-0.022509
+mixH2_xm,mixH2_xm,"non-distilled, quantized",1.83,85.55,11.487677,-0.896905,0.217531,-1.346903,-0.446907
+mixH2_xm_f8,mixH2_xm_f8,"non-distilled, quantized",1.72,85.13,11.442909,-0.941673,0.202891,-1.361384,-0.521962
+mixA_x_tuned,mixA_x_tuned,"non-distilled, quantized",1.67,81.61,11.610887,-0.773695,0.281077,-1.355146,-0.192243
+mixF_ptq,mixF_ptq (plain PTQ),"non-distilled, quantized",2.42,80.15,10.857280,-1.527302,0.233808,-2.010970,-1.043633
+mixI_x,mixI_x (combined 1-bit),failed / not acceptable,1.74,74.47,9.655051,-2.729531,0.285470,-3.320071,-2.138990
+mixI_tuned,mixI_tuned,failed / not acceptable,1.74,78.85,10.650843,-1.733739,0.312090,-2.379347,-1.088131
+tern_v1,tern_v1,failed / not acceptable,1.92,12.45,-8.961636,-21.346218,0.467528,-22.313373,-20.379063
+bin_v1,bin_v1,failed / not acceptable,1.32,1.65,,,,,
+tmixG_x_1024,tmixG_x,"distilled, quantized",2.14,81.69,11.093162,-1.291420,0.294643,-1.900936,-0.681904
+tmixG_tuned_1024,tmixG_tuned,"distilled, quantized",2.14,81.60,10.652919,-1.731663,0.353015,-2.461931,-1.001395
+tmixG_traj_1024,tmixG_traj (blur),failed / not acceptable,2.14,70.73,4.709925,-7.674657,0.842165,-9.416807,-5.932506
+tmixH_x_f8_1024,tmixH_x_f8,"distilled, quantized",1.85,80.35,10.131940,-2.252642,0.357005,-2.991162,-1.514121
+tmixH_xm_f8_1024,tmixH_xm_f8,"distilled, quantized",1.72,78.56,9.813798,-2.570784,0.331357,-3.256248,-1.885321
+turboF_mixG_tuned,mixG_tuned_t,"distilled, turbo factors folded (no retraining)",2.93,80.98,12.054207,-0.330374,0.264976,-0.878518,0.217770
+turboF_mixH2_x_f8,mixH2_x_f8_t,"distilled, turbo factors folded (no retraining)",2.74,80.38,11.573932,-0.810650,0.233908,-1.294524,-0.326775

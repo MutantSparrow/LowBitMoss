@@ -2,7 +2,7 @@
 # Example end-to-end pipeline: the "mixG" recipe (low-bit attention + 3-bit FFN with block-wise QAT, rank-32 LoRA, text embedder quantized,
 # then end-to-end tuning) from the bf16 teacher to evaluated images. The result is a 2.1 GB moss_lowbit_v1 file.
 #
-#   export COMFYUI_DIR=C:/path/to/ComfyUI          # ComfyUI v0.42.x checkout with its .venv; Windows paths in the C:/... form under Git Bash
+#   export COMFYUI_DIR=/path/to/ComfyUI          # ComfyUI v0.42.x checkout with its .venv; Windows paths in the /path/to/ComfyUI form under Git Bash
 #   export LOWBITMOSS_HOME=/path/to/workdir        # optional, default: the repository root (data/ out/ eval/ logs/ are created there, ~15 GB)
 #   bash scripts/example_pipeline.sh
 #

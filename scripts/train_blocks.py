@@ -139,10 +139,10 @@ def rel_err(block, xs, ys, items):
 
 packed = torch.load(args.resume) if args.resume else {}
 fake = {}
-Xs_tr = [it["tok"] for it in tr]  # student stream
-Xt_tr = [it["tok"] for it in tr]  # teacher stream
-Xs_ho = [it["tok"] for it in ho]
-Xt_ho = [it["tok"] for it in ho]
+Xs_tr = [it.pop("tok") for it in tr]  # student stream; the streams are the only copy of the tokens (they are ~22 GB per stream at 768 px / 1536 samples)
+Xt_tr = list(Xs_tr)  # teacher stream
+Xs_ho = [it.pop("tok") for it in ho]
+Xt_ho = list(Xs_ho)
 log = []
 t_start = time.time()
 for bi in range(42):
@@ -165,7 +165,8 @@ for bi in range(42):
                 wd = wd + packed[key + ".lora_b"].to(dev).float() @ packed[key + ".lora_a"].to(dev).float()
             sb.proj[name].weight.data = wd.to(torch.bfloat16)
         with torch.no_grad():
-            Xs_tr = [run(sb, it, x).cpu() for it, x in zip(tr, Xs_tr)]
+            for i, (it, x) in enumerate(zip(tr, Xs_tr)):
+                Xs_tr[i] = run(sb, it, x).cpu()  # in place: a second copy of the stream does not fit in RAM
             Xs_ho = [run(sb, it, x).cpu() for it, x in zip(ho, Xs_ho)]
         Xt_tr, Xt_ho = Yt_tr, Yt_ho
         print("block %2d  resumed" % bi, flush=True)
@@ -229,7 +230,8 @@ for bi in range(42):
     post = rel_err(sb, Xs_ho, Yt_ho, ho)
     # advance both streams
     with torch.no_grad():
-        Xs_tr = [run(sb, it, x).cpu() for it, x in zip(tr, Xs_tr)]
+        for i, (it, x) in enumerate(zip(tr, Xs_tr)):
+            Xs_tr[i] = run(sb, it, x).cpu()
         Xs_ho = [run(sb, it, x).cpu() for it, x in zip(ho, Xs_ho)]
     Xt_tr, Xt_ho = Yt_tr, Yt_ho
     drift = rel_err(sb, Xs_ho, Yt_ho, ho) if False else None

@@ -1,0 +1,5 @@
+vae,size_gb,dino_x100_vs_full_vae_decode,ssim_x100_vs_full_vae_decode
+FLUX.2 VAE (full),0.336,100.00,100.00
+small decoder + original encoder (official),0.25,99.58,94.79
+small decoder only (built),0.112,99.58,94.79
+reference: two runs of the SAME full-VAE pipeline,0.336,99.82,97.38

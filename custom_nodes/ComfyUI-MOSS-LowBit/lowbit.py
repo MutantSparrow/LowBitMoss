@@ -107,7 +107,7 @@ class MossLowBitLayout(QuantizedLayout):
 
     @classmethod
     def quantize(cls, tensor, kind=4, **kwargs):
-        # round to nearest, absmean scales (x2 bin/int2, x0.75 int3; absmax for int4); only reached when a patched weight is requantized
+        # round to nearest, absmean scales (x2 bin/int2, x0.75 int3; absmax for int4); not reached from ComfyUI (requantize_kwargs refuses), only the CPU tests call it
         bits, offset = KINDS[kind]
         out, n = tensor.shape
         w = tensor.float().reshape(out, n // GROUP, GROUP)
@@ -139,7 +139,8 @@ class MossLowBitLayout(QuantizedLayout):
 
     @classmethod
     def requantize_kwargs(cls, qtensor):
-        return {"kind": qtensor._params.kind}
+        # ComfyUI re-encodes a LoRA-patched weight through here; that would re-round it with plain absmean scales and drop the trained scales and low-rank branch
+        raise NotImplementedError("LoRA patches do not work on moss_lowbit weights; fold the LoRA into the file with scripts/add_turbo_factors.py")
 
 
 @register_layout_op(torch.ops.aten.linear.default, MossLowBitLayout)
