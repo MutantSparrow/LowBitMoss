@@ -13,7 +13,7 @@
 
 LowBitMoss explores block-wise quantization-aware distillation of the 5.08B-parameter MOSS-Image SFT diffusion transformer on one 16 GB GPU. Mixed-precision DiT files occupy **1.72-2.93 GB**, with low-rank corrections and a custom ComfyUI loader. This is exploratory research, with working configurations, negative results, and implementation failures documented in the paper.
 
-The **7.18 GB small distilled package** combines a 2.14 GB DiT, a 4.93 GB pruned Qwen3.5-9B GPTQ text encoder, and a 0.11 GB decoder. That is model-file storage, not peak RAM or VRAM. It has automatic scores and an informal web-interface test, but no complete-package judge pass. The proposed **7.97 GB quality package** remains unmeasured as that exact combination; its source DiT's A 4.27 and 23/24 acceptance were measured with the bf16 encoder and full VAE.
+The **7.18 GB small distilled package** combines a 2.14 GB DiT, a 4.93 GB pruned Qwen3.5-9B GPTQ text encoder, and a 0.11 GB decoder. That is model-file storage, not peak RAM or VRAM. It has automatic scores, but no complete-package judge pass. The proposed **7.97 GB quality package** remains unmeasured as that exact combination; its source DiT's A 4.27 and 23/24 acceptance were measured with the bf16 encoder and full VAE.
 
 ## Where things live
 
