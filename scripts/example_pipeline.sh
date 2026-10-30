@@ -18,6 +18,7 @@ if [ -z "${PY:-}" ]; then
   if [ -x "$COMFYUI_DIR/.venv/Scripts/python.exe" ]; then PY="$COMFYUI_DIR/.venv/Scripts/python.exe"; else PY="$COMFYUI_DIR/.venv/bin/python"; fi
 fi
 DATA="$LOWBITMOSS_HOME/data"; OUT="$LOWBITMOSS_HOME/out"; EVAL="$LOWBITMOSS_HOME/eval"; LOGS="$LOWBITMOSS_HOME/logs"
+TARGETS="${LOWBITMOSS_TARGETS:-$DATA/teacher_out_512_plus.pt}"
 mkdir -p "$DATA" "$OUT" "$EVAL" "$LOGS"
 cd "$HERE"
 
@@ -32,8 +33,8 @@ run() {  # run <log name> <command...>: output goes to logs/<log name>.log
 run capture_calib   "$PY" -I capture.py --res 512 --n 160 --keep 8
 run capture_text    "$PY" -I capture.py --res 512 --n 80 --keep 8 --prompts ../prompts/calib_text_prompts.json --prefix p-t
 
-# 2. Teacher outputs for every captured sample -> data/teacher_out_512.pt (the reference of the output-error proxy and of end-to-end tuning)
-[ -f "$DATA/teacher_out_512.pt" ] || run teacher_targets "$PY" -I teacher_targets.py
+# 2. Matching outputs for the expanded pool. Regenerate targets if captures change.
+[ -f "$TARGETS" ] || run teacher_targets "$PY" -I teacher_targets.py --data "$DATA/calib_512" --out "$TARGETS"
 
 # 3. Sensitivity of every block linear to ternary rounding -> logs/sens_tern.json (only needed to derive new allocations, see 4)
 #    and, optionally, of the non-block linears -> logs/sens_extra.json (the policy in quantize_extras.py comes from it)
@@ -57,7 +58,7 @@ run metrics_mixG_x "$PY" -I metrics.py --teacher "$EVAL/teacher_bf16" --student 
 
 # 8. End-to-end tuning of the group scales and LoRA branches against the teacher outputs (codes frozen), ~1 h
 run tune_mixG "$PY" -I e2e_tune.py --inp "$OUT/mixG_x.safetensors" --out "$OUT/mixG_tuned.safetensors" \
-    --epochs 0.7 --mb 2 --lr 2e-4 --lora_lr 4e-5 --tw 2 --cfg_w 1
+    --epochs 0.7 --mb 2 --lr 2e-4 --lora_lr 4e-5 --tw 2 --cfg_w 1 --targets "$TARGETS"
 
 # 9. Evaluate the tuned model and make a contact sheet (rows = prompts, columns = teacher, mixG_x, mixG_tuned)
 run gen_mixG_tuned     "$PY" -I gen_inproc.py --unet "$OUT/mixG_tuned.safetensors" --tag mixG_tuned
@@ -66,7 +67,7 @@ run sheet_mixG         "$PY" -I sheet.py --dirs "$EVAL/teacher_bf16" "$EVAL/mixG
 
 # 10. Check that the ComfyUI loader path reproduces the training-side output error (always do this for a new file), then install the model:
 #     copy out/mixG_tuned.safetensors to COMFYUI_DIR/models/diffusion_models/ and use the "MOSS LowBit UNET Loader" node.
-run loader_proxy "$PY" -I test_loader_proxy.py "$OUT/mixG_tuned.safetensors" 24
+run loader_proxy "$PY" -I test_loader_proxy.py "$OUT/mixG_tuned.safetensors" 24 --data "$DATA/calib_512" --targets "$TARGETS"
 echo "done: $OUT/mixG_tuned.safetensors"
 
 # 11. Smaller variant, not run by default: mixH2 (1.95 GB) = the mixH allocation (FFN int2 in blocks 6-35, int3 in 2-5 and 36-39) with a rank-64 LoRA on the

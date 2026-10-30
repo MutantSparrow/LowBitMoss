@@ -37,6 +37,13 @@ These tests run on the CPU and do not require the full model files. Optional rea
 
 Download the calibration and evaluation artifacts from [Hugging Face](https://huggingface.co/MutantSparrow/LowBitMoss). Follow the [data guide](https://huggingface.co/MutantSparrow/LowBitMoss/blob/main/DATA.md) when selecting capture/target pairs. The expanded 240-prompt non-distilled pool belongs with `teacher_out_512_plus.pt`; the legacy `teacher_out_512.pt` belongs to the original 160-prompt pool. Check that a script's configured inputs match the pair being used before running a loader-proxy comparison.
 
+The loader-proxy test, teacher-target generator, end-to-end tuner, and example pipeline default to the expanded pair. `test_loader_proxy.py` accepts `--data` and `--targets` for another matching pool and rejects unequal capture/target counts before loading the GPU model. `LOWBITMOSS_TARGETS` selects the pipeline's target file; use `--out` for the generator and `--targets` for the tuner when selecting another pool:
+
+```sh
+python -I -B test_loader_proxy.py MODEL.safetensors 24 --data CAPTURES --targets MATCHING_TARGETS.pt
+python -I -B e2e_tune.py --inp MODEL.safetensors --epochs 0 --data CAPTURES --targets MATCHING_TARGETS.pt
+```
+
 Generation, training, and encoder checks require the source model components and a GPU. `metrics.py` uses CLIP and DINOv2; `hps3_score.py` additionally needs the HPSv3 checkpoint and its configuration. Numerical parity between this HPS-based scorer and the official implementation remains unvalidated: its plausibility checks do not establish benchmark equivalence.
 
 ## Interpreting validation

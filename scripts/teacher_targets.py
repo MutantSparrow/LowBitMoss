@@ -12,7 +12,7 @@ from common import *  # noqa: F401,F403
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--data", default=os.path.join(DATA, "calib_512"))
-ap.add_argument("--out", default=os.path.join(DATA, "teacher_out_512.pt"))
+ap.add_argument("--out", default=os.path.join(DATA, "teacher_out_512_plus.pt"), help="Output file; default matches the released expanded pool")
 args = ap.parse_args()
 
 m = build_model(load_teacher_sd(), device="cuda")
