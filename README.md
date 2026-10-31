@@ -15,6 +15,8 @@ LowBitMoss explores block-wise quantization-aware distillation of the 5.08B-para
 
 The **7.18 GB small distilled package** combines a 2.14 GB DiT, a 4.93 GB pruned Qwen3.5-9B GPTQ text encoder, and a 0.11 GB decoder. That is model-file storage, not peak RAM or VRAM. It has automatic scores, but no complete-package judge pass. The proposed **7.97 GB quality package** remains unmeasured as that exact combination; its source DiT's A 4.27 and 23/24 acceptance were measured with the bf16 encoder and full VAE.
 
+**Author's hands-on validation.** I have also manually benchmarked the models and reviewed their outputs, and I am satisfied with the results. The images have a softer rendering style, but the models retain a surprising amount of visual information and image quality. This is my qualitative assessment from hands-on use; the numerical results in the paper refer to the evaluation configurations described above.
+
 ## Where things live
 
 | Repository | Contents |
