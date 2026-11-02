@@ -4,6 +4,8 @@
 
 **Low-bit MOSS-Image for consumer hardware**
 
+<a href="assets/banner.png"><img src="assets/banner.png" alt="LowBitMoss example generations across photography, illustration, and text" width="960"></a>
+
 [![GitHub code](https://img.shields.io/badge/GitHub-Code-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/MutantSparrow/LowBitMoss)
 [![Models and data](https://img.shields.io/badge/🤗%20Hugging%20Face-Models%20%26%20Data-ffc107?style=flat-square)](https://huggingface.co/MutantSparrow/LowBitMoss)
 [![Whitepaper](https://img.shields.io/badge/📄%20Paper-Whitepaper-b31b1b?style=flat-square)](https://github.com/MutantSparrow/LowBitMoss/blob/main/paper/whitepaper.pdf)
@@ -23,6 +25,13 @@ The **7.18 GB small distilled package** combines a 2.14 GB DiT, a 4.93 GB pruned
 |---|---|
 | [GitHub](https://github.com/MutantSparrow/LowBitMoss) | Training and evaluation code, ComfyUI loader, format specification, abstract, whitepaper |
 | [Hugging Face](https://huggingface.co/MutantSparrow/LowBitMoss) | Model files, calibration data, evaluation artifacts, abstract, whitepaper |
+
+## Visual evidence
+
+Full-resolution visual model cards show example outputs across subjects, styles, text rendering, and complex prompts.
+
+- [mixG_x model card (PNG)](evidence/model-cards/MODELCARD_mixG_x.png?raw=true)
+- [mixG_tuned model card (PNG)](evidence/model-cards/MODELCARD_mixG_tuned.png?raw=true)
 
 ## Abstract
 
